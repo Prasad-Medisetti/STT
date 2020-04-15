@@ -1,0 +1,32 @@
+t=int(input())
+for i in range(t):
+    
+  n=int(input())
+  matrix=[]
+  count=0
+  for j in range(n):
+    l=list(map(int,input().split()))
+    for k in l:
+      if l.count(k)>1:
+        count=count+1
+        break
+    matrix.append(l)
+  count2=0
+  l2=[]
+  for m in range(len(matrix)):
+     l3=[]
+     for v in matrix:
+       l3.append(v[m])
+     l2.append(l3)  
+  for d in l2:
+    for x in d:
+     if d.count(x)>1:
+         count2=count2+1
+         break
+  vc=0
+  sum2=0
+  for b in matrix:
+    sum2=sum2+b[vc]
+    vc=vc+1     
+  print('case #{}: {} {} {}'.format(i+1,sum2,count,count2))     
+     

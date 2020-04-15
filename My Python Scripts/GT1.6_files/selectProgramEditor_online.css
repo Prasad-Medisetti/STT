@@ -1,0 +1,52 @@
+.previous_input{
+    border:1px solid #eee;
+    padding:5px;
+    margin:5px;
+    background:#eee;
+    height: 80px;
+    width:200px;
+    overflow:auto;
+    display:inline-block;
+    cursor: pointer;
+}
+.previous_input .pi-head{
+    cursor: pointer;
+    font-weight: bold;
+}
+.previous_input .pi-body{
+    background:none;
+    border:none;
+}
+.previous_input .pi-input{
+    display:none;
+}
+#previousInputs{
+    max-height:250px;
+    overflow:auto;
+    display:none;
+}
+#previousInputsHead{
+    padding:5px;
+}
+#previousInputsdiv{
+    display:none;
+}
+#executePane{
+    width:100% !important;
+}
+#executePane .form-inline{
+    display:block !important;
+    width:100% !important;
+}
+.template-show{
+    margin: 10px auto;
+}
+.copy-paste {
+    font-size: 20px;
+    color: #808080;
+    padding: 5px 5px;
+}
+.copy-paste:focus, .copy-paste:hover {
+    color: #808080;
+    text-decoration: none;
+}

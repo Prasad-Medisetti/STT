@@ -1,0 +1,3243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0065)https://app.e-box.co.in/amphiSession/processSession/45164?popup=# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        .popup-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding: 10px;
+            left: 0;
+            top: 0;
+            width: 15%;
+//            height : 13%;
+            background : white;
+            margin-left : 61%;
+            margin-top : 13%;
+            box-shadow: -8px 8px 10px 3px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        #tokenValue{
+            font-size: 17px;
+            font-style: italic;
+            padding-top : 10px
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport">
+    
+        <title>Attempt</title>
+    
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i);
+        @font-face{
+            font-family:"FontAwesome";src:url("../../fonts/online/fontawesome-webfont.eot?v=4.7.0");
+            src:url("../../fonts/online/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"),
+                url("../../fonts/online/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),
+                url("../../fonts/online/fontawesome-webfont.woff?v=4.7.0") format("woff"),
+                url("../../fonts/online/fontawesome-webfont.ttf?v=4.7.0") format("truetype"),
+                url("../../fonts/online/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+                font-weight:normal;font-style:normal
+        }
+    </style>
+    
+        <link rel="shortcut icon" href="https://d27jjvs1kbv0db.cloudfront.net/static/images/favicon.ico" type="image/x-icon">
+     
+    
+    
+    <script type="text/javascript" async="" src="./GT1.1_files/analytics.js.download"></script><script src="./GT1.1_files/jquery-1.10.2.min.js.download" type="text/javascript"></script>
+<link href="./GT1.1_files/bundle-online_head.css" type="text/css" rel="stylesheet" media="screen, projection">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./GT1.1_files/bundle-online_defer.js.download" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    
+    <style>.cke{visibility:hidden;}</style><style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style>.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);}.ace_editor.ace_autocomplete .ace_line-hover {    position: absolute;    z-index: 2;}.ace_editor.ace_autocomplete .ace_scroller {   background: none;   border: none;   box-shadow: none;}.ace_rightAlignedText {    color: gray;    display: inline-block;    position: absolute;    right: 4px;    text-align: right;    z-index: -1;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #000;    text-shadow: 0 0 0.01em;}.ace_editor.ace_autocomplete {    width: 280px;    z-index: 200000;    background: #fbfbfb;    color: #444;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;}</style><script src="./GT1.1_files/mode-python.js.download"></script></head><body style="cursor: auto;" class=""><span></span>
+    <script type="text/javascript" src="./GT1.1_files/ckeditor.js.download"></script>
+    <link rel="stylesheet" href="./GT1.1_files/helpGifs.css">
+    
+    
+    <span></span>
+<!--[if lt IE 9]>
+    <style>
+        .sidePaneLink{
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+            -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+        }
+    </style>
+    <![endif]-->    
+    
+  <script language="javascript" type="text/javascript">
+    var amphiThemeName = "ixel-lite";
+    var grailsUrl = "https://app.e-box.co.in:443";
+    var contextPath = '';
+    var requestProtocol = 'https';
+    if(contextPath == '/')
+      contextPath = '';
+      
+      if(self != top){
+        document.documentElement.style.display = 'none';
+      }
+    
+  </script>
+  
+        
+        <meta name="layout" content="main_online">
+        
+        <style type="text/css">
+             #overlay {
+                visibility: hidden;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                text-align:center;
+                z-index: 200;                
+                background-color: black;
+                opacity:0.9;                
+            }
+
+            #overlay div {
+                width:400px;
+                margin: 100px auto;
+                background-color: #fff;
+                border:1px solid #000;
+                padding:15px;
+                text-align:center;
+                border-radius: 6px;
+            }
+            .draggable {
+                position: absolute !important;
+                width: 200px;
+                height: 150px;
+                cursor: pointer;
+                z-index: 105;
+            }
+            #canvas-wrap, #proctoringCanvas { 
+                position:absolute;
+                bottom: 10px;
+                right: 10px;
+            }
+            #proctoringCanvas {
+                width: 200px;
+                height: 150px;
+                border: 2px solid #471E7F;
+                border-radius: 5px;
+            }   
+        </style>        
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./GT1.1_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131519040-1');
+</script>        
+   
+
+ 
+    
+    
+ 
+    <div class="popup-modal">  
+        <div id="sso_token_menu" style="left:-100%; border-radius: 0px; width:100%;">
+            <div>
+                <div id="tokenHeading">
+                    <b class="col-md-8 col-lg-8" style="padding: 0px;">Token</b>
+                    <div class="col-md-2 col-lg-2 pull-right" style="padding: 0px;">
+                        <a href="javascript:void(0)" title="Close" onclick="jQuery(&#39;.popup-modal&#39;).hide()"><i class="fa fa-close"></i></a>
+                    </div>
+                </div>                
+                <div style="clear: both"></div>
+                <div id="tokenValue"></div>              
+            </div>
+        </div>
+    </div>
+        
+    
+   <div id="content" class="content row" style="padding-top: 5px;">
+     
+      
+            
+        
+    
+        
+        
+        <div id="attempt-details">
+
+
+
+
+
+
+
+
+
+
+<style>
+    .draggable {
+        position: absolute !important;
+        width: 200px;
+        height: 150px;
+        cursor: pointer;
+        z-index: 105;
+    }
+    #canvas-wrap, #proctoringCanvas { 
+        position:absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    #proctoringCanvas {
+        width: 200px;
+        height: 150px;
+        border: 2px solid #471E7F;
+        border-radius: 5px;
+    } 
+</style>
+
+
+
+            <script type="text/javascript">
+                var lastAccessedTime = 0;           
+                $(document).ready(function(){                    
+                    
+                });
+                
+                </script>
+                
+        <!-- Do not remove this div or id (attempt-body). -->
+        <div class="body" id="attempt-body" style="margin:0px;">            
+            <div id="overlay">
+                 <div>
+                     Assessment Time Ended,Please wait it will be redirected to result page shortly.
+                 </div>
+             </div>           
+             <input type="hidden" name="asid" value="45164" id="asid">
+             <input type="hidden" name="asuaid" value="1976335" id="asuaid">
+             
+            <div class="sidePaneLink" id="attemptComponentsListBtn" style="left:0px;top:75%;">
+                
+            </div>
+                
+            <div class="dialog" style="max-width:100%;">         
+                
+                
+
+
+           <div class="modal fade" id="instructionsDialog" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">Instructions</h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+    <div id="instructions"></div>
+
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+                
+                    
+                        
+                        
+                        
+                        
+                            
+                           <div style="float: right;">
+                                <div id="sessionTimer" style="position: fixed;overflow: visible;width: 250px;margin-left: -270px;z-index:10;">
+                                    <div id="contestTimer"></div>
+                                </div>
+                            </div>  
+                        
+                        
+                    
+                  
+                    
+                    
+                     
+                    
+            
+                
+
+   
+
+
+
+<script src="./GT1.1_files/bundle-bundle_contestAttempt_head.js.download" type="text/javascript"></script>
+
+
+<link href="./GT1.1_files/bundle-bundle_contestAttempt_head.css" type="text/css" rel="stylesheet" media="screen, projection">
+
+<script src="./GT1.1_files/bundle-bundle_scodhvest_online_defer.js.download" type="text/javascript"></script>
+
+
+
+
+
+    <input type="hidden" id="pushSubmissionStatusLive" value="true">
+
+<script src="./GT1.1_files/ace.js.download" type="text/javascript" charset="utf-8"></script>
+<script src="./GT1.1_files/ext-language_tools.js.download"></script>  
+<script src="./GT1.1_files/shCore.js.download" type="text/javascript"></script>
+<script src="./GT1.1_files/editorial.js.download"></script>
+
+<style>
+    .tdclass{
+        font: 12px 'Palatino Linotype', 'Book Antiqua', Palatino, serif;/*verdana, arial, helvetica, sans-serif;*/
+        line-height: 12px;  
+        vertical-align: top 
+    }
+    .CodeMirror {
+      border: 1px solid black;
+      /*margin-right:60px;*/
+    }
+    
+    .spinner{
+        padding-left: 48%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    .spinner > div{ 
+        background-color:#471E7F; 
+    }
+    body{
+        padding-right:0 !important;
+    } 
+    .info-wrapper{
+        background-color: #edeaf4;
+        padding: 15px 30px;
+    }
+    .info-wrapper:after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+    .info-wrapper .info-left, .info-wrapper .info-right{
+        float: left;
+        position: relative;
+        display: block;
+        min-height:1px;
+    }
+    .info-wrapper .info-left{
+        width: 80px;
+    }
+    .info-wrapper .info-left .img-wrapper{
+        padding: 5px;
+    }
+    .info-wrapper .info-right{
+        width: calc(100% - 80px);
+        padding: 0 15px;
+    }
+    .info-wrapper .info-right p{
+        color: #532e8f;
+        font-size: 17px;
+        line-height: 25px;
+        margin-top: 10px;
+    } 
+    .hide-info{
+        display:none;
+    }
+    .nav-tabs {
+        display: inline-flex;
+        border-bottom:none !important;
+        width: 100%;
+    }
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:focus,
+    .nav-tabs>li.active>a:hover {
+        border-width: 0;
+    }
+    .nav-tabs>li>a {
+        border: none;
+        color: #666;
+    }
+    .nav-tabs>li.active>a,
+    .nav-tabs>li>a:hover {
+        border: none;
+        color: #471e7f !important;
+        background: transparent;
+    }
+    .nav-tabs>li>a::after {
+        content: "";
+        background: #471e7f;
+        height: 2px;
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        bottom: 1px;
+        transition: all 250ms ease 0s;
+        transform: scale(0);
+    }
+    .nav-tabs>li.active>a::after,
+    .nav-tabs>li:hover>a::after {
+        transform: scale(1);
+    }
+    .tab-nav>li>a::after {
+        background: #21527d none repeat scroll 0% 0%;
+        color: #fff;
+    }
+    .tab-pane {
+        padding: 15px 0;
+    }
+    .tab-content {
+        padding: 20px
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+        display: none; /*Safari and Chrome*/
+    }
+    #systemTestcaseDialog .modal-dialog{
+        min-width: 60% !important;
+    }
+    #systemTestcaseHint {
+        height: 500px !important;
+        overflow: auto !important;
+    }
+</style>
+<script language="javascript">
+    var codeEditor;
+    var intervaltime = 120000;
+    var autosaveurl = "https://app.e-box.co.in/contestComponent/processEditorProgram";
+</script>
+
+<input type="hidden" id="probId" value="15931">
+<input type="hidden" id="compId" value="50079">
+<input type="hidden" id="amphiSessionUserAttemptId" value="1976335">
+<input type="hidden" id="problemType" value="problem">
+
+<form action="https://app.e-box.co.in/amphiSession/processSession" method="post" name="attemptForm" id="attemptForm">
+       
+
+    
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="attempt-wrapper">
+    <div class="top-section">
+        <div class="logo-img">
+            
+                
+                
+                    
+                        <a href="http://app.e-box.co.in/">
+                            <span class="ebox-icon ebox-e-attempt-logo "></span>
+                        </a>
+                    
+                
+            
+        </div>
+        <div class="problem-name" title="AEC_ASSESSMENTS/Grand Test 1(14-12-19)">            
+                            
+                <div class="dropdown">
+    <a id="course-session" class="arrow" onclick="jQuery(&#39;#courseSessionLinks&#39;).slideToggle(400)">
+        <p class="problem-text">Grand Test 1(14-12-19)</p>
+        <span class="eboxicon eboxicon-caret-down"></span>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="course-session" id="courseSessionLinks">
+        <div class="session-wrapper">
+            <div class="session-item">
+                
+                    <div class="single-session">
+                        <h4>Session</h4>
+                        <ul class="session-list">
+                            
+                                <li class="completed">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/38144&#39;)">
+                                        
+                                            <span class="ebox-icon circle-icon icon-completed"></span>
+                                        
+                                        test1
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/38509&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Assessment2_28-9-19
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/41805&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Practice Test-1
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/41946&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Practicing Test 2 (20-11-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/42087&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Practice Test-3(21-11-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/42090&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Practice Test 3 (21-11-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/42110&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Practice Test - 4(22-11-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="completed">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/42111&#39;)">
+                                        
+                                            <span class="ebox-icon circle-icon icon-completed"></span>
+                                        
+                                        Practice Test 4 (23-11-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/42408&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Practice Test 5 (26-11-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="completed">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/42462&#39;)">
+                                        
+                                            <span class="ebox-icon circle-icon icon-completed"></span>
+                                        
+                                        Test 5
+                                    </a>
+                                </li>
+                            
+                                <li class="completed">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/43113&#39;)">
+                                        
+                                            <span class="ebox-icon circle-icon icon-completed"></span>
+                                        
+                                        Practice Test 6 (30-11-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="completed">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/43591&#39;)">
+                                        
+                                            <span class="ebox-icon circle-icon icon-completed"></span>
+                                        
+                                        Practice Test 7
+                                    </a>
+                                </li>
+                            
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/43756&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Practice Test 8 (7-12-19)
+                                    </a>
+                                </li>
+                            
+                                <li class="inprogress">
+                                    <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/amphiSession/processSession/45164&#39;)">
+                                        
+                                            <span class="completed ebox-icon circle-icon icon-right-arrow"></span>
+                                        
+                                        Grand Test 1(14-12-19)
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                
+            </div>
+            
+            <div class="go-action session-nav-new">
+                <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/course/showCourseList/1968&#39;)">Go to Course</a>
+                <a href="javascript:void(0)" onclick="saveLastPageAnswerAndRedirect(&#39;Save &amp; Redirect&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;/course/coursetabs&#39;)">Go to Home</a>
+            </div>
+        </div> 
+    </div>
+</div>
+
+            
+        </div>
+                     
+            
+        <div class="right-side">           
+                           
+                <a href="https://app.e-box.co.in/course/coursetabs" onmouseup="showWait();"><span class="ebox-icon icon-website home-icon" style="margin-left: 5px;"></span></a>       
+             
+          
+                <div class="action_items">
+                   <ul class="action_items_list"> 
+                                           
+                       <li class="dropdown" id="user-menu-dropdown">
+                           <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="dropdown-toggle" data-toggle="dropdown">MEDISETTI PRASAD <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> </a>
+                           <ul class="dropdown-menu dropdown-menu-right">
+                               <li class="dropdown-item"><a href="https://app.e-box.co.in/user/show/165374" target="_blank">My Profile</a></li>
+                               <li class="dropdown-item"><a href="https://app.e-box.co.in/user/editMin/165374" target="_blank">Change Password</a></li>
+                               <li class="dropdown-item"><a href="https://app.e-box.co.in/user/editSecretQuestion">Change Secret Answer</a></li>
+                               <li class="dropdown-item"><a href="https://app.e-box.co.in/ticket/myTicket/165374">Help Desk</a></li>
+                               
+                                   <li class="dropdown-item"><a href="https://app.e-box.co.in/user/logout?insId=">Logout</a></li>
+                               
+                           </ul>
+                       </li>                
+                    </ul>
+               </div>
+            
+              
+                <div class="titbit" style="display:none" id="editorial-show">
+                    <div class="dropdown" id="titbit-notification">
+                        <a data-toggle="dropdown" id="titbit-dropdown"><span class="ebox-icon titbit-icon"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="titbit-dropdown">
+                            <div class="tibit-drop-content">
+                                Learn to code. Click <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" onclick="showEditorialHelp()">here</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="problem-counter">
+                <div id="problem-counter" class="time-counter"><div class="hours"><span class="counter-text">00</span></div><div class="mins"><span class="counter-text">15</span></div><div class="seconds"><span class="counter-text">08</span></div></div>
+            </div>
+            <div class="top-btn-group"> 
+                
+                
+                
+                
+                
+                    <a class="btn ebox-btn finish-btn review-btn" style="display: inline-block;" href="javascript:void(0)" onclick="showPreviewForAttempt(&quot;/amphiSession/previewSectionStatus&quot;);">REVIEW</a>
+                
+            </div>
+            
+                <div class="attempt-layout-toggle toggle-btn-group" style="">
+                    <a href="javascript:void(0);" class="attempt__toggle-btn btn active attempt-vertical" title="Landscape" style="display: none;"><span class="eboxicon eboxicon-h-layout"></span></a>                                
+                    <a class="attempt__toggle-btn btn attempt-vertical" onclick="splitSave();" href="javascript:void(0);" style="display: none;"><span class="eboxicon eboxicon-v-layout"></span></a>
+                    <a href="javascript:void(0);" class="attempt__toggle-btn btn attempt-horizontal" onclick="splitSave();" title="Landscape"><span class="eboxicon eboxicon-h-layout"></span></a>                                
+                    <a class="attempt__toggle-btn btn active attempt-horizontal" href="javascript:void(0);"><span class="eboxicon eboxicon-v-layout"></span></a>                    
+                </div>
+                        
+        </div>
+    </div>    
+    <div style="display:none">
+        <input type="submit" name="_action_processSession" value="Finish" id="attemptfinishbutton" class="save paginateNavigateButtons btn-danger" onclick="transferAnswer(&#39;contestComponent&#39;);return(submitAlert());" style=" background-color: #d9534f;border-color: #d43f3a;color: #fff;">
+    </div>
+    
+    <input type="hidden" name="pn" value="0" id="pn">
+    <input type="hidden" name="compNumber" value="0" id="compNumber">
+    <input type="hidden" name="optionType" value="" id="optionType">
+    <input type="hidden" name="automatic" value="false" id="automatic">
+    <input type="hidden" name="amphiSessionUserAttemptId" value="1976335" id="amphiSessionUserAttemptId">    
+    <input type="hidden" name="refresh_details" value="false" id="refresh_details">
+    <input type="hidden" name="id" value="45164" id="id">
+    <input type="hidden" name="compid" value="50079" id="compid">
+    <input type="hidden" name="timeSpent" value="0" id="timeSpent">
+</section>
+<div id="sectionList" class="modal fade section-status-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Attempt Summary</h4>
+                <ul class="section-legends">
+                    
+                        <li class="attempt-finish">Attempted</li>
+                        <li class="attempt-wrong">Wrong Answer</li>
+                                        
+                    <li class="attempt-not-taken">Not Attempted</li>
+                    <li class="attempt-inprogress">Inprogress</li>
+                    <li class="attempt-flagged">Flagged For Review</li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="sectionsblock">
+                    <div class="individual-section" id="sections-questions">
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>   
+<script>
+    function timeEnd(){
+            var isTimedSectionEnabled 
+            document.getElementById('automatic').value = 'true';
+            if(document.getElementById("isTimedSectionEnabled") != null)
+                isTimedSectionEnabled = document.getElementById("isTimedSectionEnabled").value
+
+            if(!isTimedSectionEnabled){
+                overlay();
+                document.getElementById('optionType').value = 'Finish';
+                document.getElementById('refresh_details').value = ''; 
+                document.attemptForm.submit();
+            }
+            else{
+                showWait();
+                document.getElementById('optionType').value = 'SectionFinish';
+                $.ajax({
+                    url: '/amphiSession/processSession/45164',
+                    type: 'POST',
+                    data: serializeForm('attemptForm'),
+                    success: function(data, ioArgs) { 
+                        if(data.finish){
+                            window.location.href = '/amphiSession/finishSession/45164';
+                        }
+                        else{                                                         
+                            hideWait();
+                            $.each(CKEDITOR.instances, function (key, value) {
+                                var editor = CKEDITOR.instances[key];
+                                if (editor) {                    
+                                editor.destroy(true); 
+                                }
+                            });                                              
+                            $("#attempt-details").html(data);
+                        }
+                    },
+                    error: errorCall
+                });
+            }                        
+
+        }
+        
+        function overlay(){
+            el = document.getElementById("overlay");
+            el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+        }
+               
+     var timerReloadTime = 300000;
+     function lastCheckRemainingTime(timerObject){
+                $.ajax({
+                    url: "/amphiSession/finalCheckRemainingTime",
+                    data : {
+                        "amphiSessionuserAttptId": 1976335,
+                        "remainingSec" : (timerObject.distance/1000),
+                        "dummy": new Date().getTime()
+                    },
+                    type: "POST",
+                    success : function(data){                        
+                        if(data.update){   
+                            hideWait();
+                            timerObject.distance = Number(''+data.remainingTimeSec)*1000;
+                        }
+                        else{
+                            clearInterval(timerObject.intervalObj);
+                            try {
+                                var endCallBack = timeEnd;
+                                if (endCallBack != undefined && typeof (endCallBack) == "function") {
+                                    endCallBack();
+                                }
+                            }
+                            catch (e) {
+                                console.log("timeEnd callback err", e)
+                            }                                     
+                        }
+                    }  
+                });
+            }
+            function updateTimer(timerObject) {    
+                $.ajax({
+                    url: "/amphiSession/remainingTimeForSession",
+                    data : {
+                       "amphiSessionuserAttptId": 1976335,
+                       "remainingSec" : (timerObject.distance/1000),
+                        "dummy": new Date().getTime()
+                    },
+                    type: "POST",
+                    success : function(data){
+                        if(data.update){                   
+                            timerObject.distance = Number(''+data.remainingTimeSec)*1000;
+                        }
+                    }  
+                });
+            }  
+            
+    
+    $(document).ready(function(){ 
+        $('#sectionList').on('shown.bs.modal', function() { 
+            var sections_questions_width = 0;
+            $("#sections-questions .single-set").each(function(){
+                sections_questions_width += $(this).width();
+            });
+            $("#sections-questions").css("width", (sections_questions_width + 5));
+        });
+        
+            timerObject = eboxApp.timeCounter({
+                selector:'#problem-counter',
+                problemTime: (new Date().getTime() / 1000) + 961,
+                currentTime: new Date().getTime() / 1000
+            });
+        
+    });     
+</script>
+
+        
+
+
+ </form>
+<input type="hidden" id="split-redirectLink" name="split-redirectLink" value="/amphiSession/processSession?switchScreen=2">
+<input type="hidden" id="split-saveLink" name="split-saveLink" value="/contestComponent/processEditorProgram">
+<input type="hidden" id="adaptiveAssessmentSession" name="adaptiveAssessmentSession" value="false">
+<div id="line-chart" class="line-chart"></div>
+
+    <div class="attempt-v1">   
+        
+
+
+
+
+
+
+
+
+
+
+
+
+                                          
+<div class="problem-navigation closed" id="problem-navId" data-content-url="/amphiSession/showAttemptStatus?sectionStatus=true" style="height: 502px;">
+    <div class="navbar-toggle-btn" style="">
+        <div id="navbar-toggle">
+            <span class="eboxicon eboxicon-menu-3line"></span>
+        </div>
+    </div>                
+    <div id="smallProblemNavbar" class="problem-navbar-wrapper" style="height: 463px;"><div class="navbar-problem-outer"><div class="navbar-problem-group">
+        
+            
+                
+                    
+                    
+                    
+                        
+                         
+                             
+                                             
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                            
+                                                
+                                            
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list active completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Index_Max_Element" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,0,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>1</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div><div class="problem-list  ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Sorting Pattern" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,1,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>2</span>
+                                                            <div class="problem-status"><span class=""></span></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div><div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Recursive Deletion" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,2,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>3</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div><div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Well formulated List" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,3,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>4</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div><div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Anagrams_in_a_String" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,4,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>5</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div><div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Digit_Occurrence" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,5,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>6</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div><div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Word_Positions" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,6,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>7</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div></div></div>                                       
+                                                                                                           
+                                        
+                                                    
+                                   
+                                                            
+                         
+                             
+                                             
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                                                                   
+                                                                                                           
+                                        
+                                                    
+                                   
+                                                            
+                         
+                             
+                                             
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                                                                   
+                                                                                                           
+                                        
+                                                    
+                                   
+                                                            
+                         
+                             
+                                             
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                                                                   
+                                                                                                           
+                                        
+                                                    
+                                   
+                                                            
+                         
+                             
+                                             
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                                                                   
+                                                                                                           
+                                        
+                                                    
+                                   
+                                                            
+                         
+                             
+                                             
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                                                                   
+                                                                                                           
+                                        
+                                                    
+                                   
+                                                            
+                         
+                             
+                                             
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                                                                   
+                                                                                                           
+                                        
+                                                    
+                                   
+                                                            
+                                                      
+                                                
+                
+                 
+        
+    </div>
+    <div class="problem-full-detail" id="problem-section-details" style="display:none"> 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="problem-item-details">   
+    
+        <input type="hidden" name="module-nav-link" value="/course/showCourseModuleList?sesId=45164" id="module-nav-link">
+        <input type="hidden" name="session-nav-link" value="/course/showModuleSessionList?mId=10688" id="session-nav-link">        
+        <div class="section-detail module-detail not-loaded" data-loaded="false" style="display: none; height: 501px;">
+            <div id="module-content" style="display:none;">
+            </div>
+        <a class="section-menu-link" href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#module-content" data-url="/course/showCourseModuleList?sesId=45164" style="width: 100%;"><h3><span>Module</span></h3></a></div>
+        <div class="section-detail session-category not-loaded" data-loaded="false" style="display: block; height: 501px;">
+            <div id="session-content" style="display:none;">
+            </div>
+        <a class="section-menu-link" href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#session-content" data-url="/course/showModuleSessionList?mId=10688" style="width: 100%;"><h3><span>Sessions</span></h3></a></div>
+    
+    <div class="section-detail session-detail" data-loaded="true">
+        <h3>SECTIONS</h3>
+        <div class="session-list-group" style="height: 462px;"><div class="scrollWrap"><div class="scrollContent">
+                              
+                
+                
+                                    
+                    
+                    
+                    
+                        
+                    
+                    <div class="sesstion-list active">
+                        <div class="session-item">
+                            <a href="https://app.e-box.co.in/amphiSession/processSession/50079" class="section-link-action">
+                                <p>Grand Test 1(14-12-19) --- Programming</p>
+                                
+                                    <div class="progress" style="background-image: none;">                                    
+                                        
+                                            <div class="progress-bar" style="width: 85.7142857143%" aria-valuenow="85.7142857143" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <label>6/7 SOLVED</label>                                        
+                                        
+                                    </div>
+                                
+                            </a>
+                        </div>
+                    </div>                     
+                
+            
+        </div></div><div class="fakeScrollBar" style=""></div></div>
+        
+            <div class="session-completion" style="height:250px;">
+                
+                    <h3>SESSION COMPLETION</h3> 
+                    <div id="session-completion-progress">
+                        <style>
+    #chart{
+        width:100%
+    }
+   
+
+	.pie text{
+	  font-size: 35px;
+	  font-family: "Verdana";
+	  fill: #fff;
+	}
+</style>
+<div id="chart"><svg class="pie" width="150" height="150"><g transform="translate(75,75)"><path d="M4.592425496802574e-15,-75A75,75,0,1,1,-48.20907072649041,-57.45333323392338L-41.78119462962502,-49.7928888027336A65,65,0,1,0,3.980102097228898e-15,-65Z" class="radial-session-completeion-path" fill="#0a8"></path><path d="M-48.20907072649041,-57.45333323392338A75,75,0,0,1,-1.3777276490407723e-14,-75L-1.1940306291686693e-14,-65A65,65,0,0,0,-41.78119462962502,-49.7928888027336Z" class="radial-session-completeion-path" fill="#532e8f"></path><text text-anchor="middle" dy=".35em">89%</text></g></svg></div>
+<script src="./GT1.1_files/d3.v4.min.js.download"></script>
+<script>
+    var showDonutChart;
+
+$(document).ready(function(){
+var percent = 0.888888888888889; // 0.0 to 1.0
+var text = Math.round(percent * 100) + "%";
+
+var width = 150;
+var height = 150;
+var thickness = 10;
+var duration = 750;
+var foregroundColor = "#0a8";
+var backgroundColor = "#532e8f";
+
+var radius = Math.min(width, height) / 2;
+var color = d3.scaleOrdinal([foregroundColor, backgroundColor]);
+
+var svg = d3.select("#chart")
+.append('svg')
+.attr('class', 'pie')
+.attr('width', width)
+.attr('height', height);
+
+var g = svg.append('g')
+.attr('transform', 'translate(' + (width/2) + ',' + (height/2) + ')');
+
+var arc = d3.arc()
+.innerRadius(radius - thickness)
+.outerRadius(radius);
+
+var pie = d3.pie()
+.sort(null);
+
+var path = g.selectAll('path')
+.data(pie([0, 1]))
+.enter()
+.append('path')
+.attr('d', arc)
+.attr('class', 'radial-session-completeion-path')
+.attr('fill', function(d, i) {
+  return color(i);
+})
+.each(function(d) { this._current = d; });
+
+
+path.data(pie([percent, 1-percent])).transition()
+  .duration(duration)
+  .attrTween('d', function(d) {
+  var interpolate = d3.interpolate(this._current, d);
+  this._current = interpolate(0);
+  return function(t) {
+    return arc(interpolate(t));
+  }
+});
+
+g.append('text')
+  .attr('text-anchor', 'middle')
+  .attr('dy', '.35em')
+  .text(text);
+
+showDonutChart = function () {
+    $('.radial-session-completeion-path').remove();
+    let path = g.selectAll('path')
+        .data(pie([0, 1]))
+        .enter()
+        .append('path')
+        .attr('d', arc)
+        .attr('class', 'radial-session-completeion-path')
+        .attr('fill', function(d, i) {
+            return color(i);
+        })
+        .each(function(d) {
+            this._current = d;
+        });
+
+    path.data(pie([percent, 1 - percent])).transition()
+        .duration(900)
+        .attrTween('d', function(d) {
+            var interpolate = d3.interpolate(this._current, d);
+            this._current = interpolate(0);
+            return function(t) {
+                return arc(interpolate(t));
+            }
+        });
+}
+});
+</script>
+
+                    </div>
+                
+            </div>
+       
+        <div class="btn-section">
+            <a class="btn ebox-btn finish-btn" href="javascript:void(0)" onclick="return(submitAlertOnline(&quot;My Status&quot;));" style="display: none;">Finish Test</a>
+        </div>
+    </div>
+    <div class="section-detail problem-detail" data-loaded="true">
+        <h3>PROBLEMS</h3>
+        <div id="problem-wrapper" class="problem-navbar-wrapper" style="height: 462px;"><div class="scrollWrap"><div class="scrollContent">
+              
+                
+                                
+                                    
+                    
+                    
+                    
+                        
+                    
+                    <div id="section-status-50079" class="show-section-status">
+                        
+                             
+                                
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                            
+                                                
+                                            
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list active completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Index_Max_Element" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,0,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>1</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                        <p class="list-name">Index_Max_Element</p>                                                        
+                                                    </a>
+                                                </div>
+                                            </div>                                       
+                                                                                
+                                        
+                                                    
+                                   
+                                                        
+                        
+                             
+                                
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list  ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Sorting Pattern" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,1,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>2</span>
+                                                            <div class="problem-status"><span class=""></span></div>
+                                                        </div>
+                                                        <p class="list-name">Sorting Pattern</p>                                                        
+                                                    </a>
+                                                </div>
+                                            </div>                                       
+                                                                                
+                                        
+                                                    
+                                   
+                                                        
+                        
+                             
+                                
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Recursive Deletion" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,2,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>3</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                        <p class="list-name">Recursive Deletion</p>                                                        
+                                                    </a>
+                                                </div>
+                                            </div>                                       
+                                                                                
+                                        
+                                                    
+                                   
+                                                        
+                        
+                             
+                                
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Well formulated List" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,3,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>4</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                        <p class="list-name">Well formulated List</p>                                                        
+                                                    </a>
+                                                </div>
+                                            </div>                                       
+                                                                                
+                                        
+                                                    
+                                   
+                                                        
+                        
+                             
+                                
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Anagrams_in_a_String" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,4,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>5</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                        <p class="list-name">Anagrams_in_a_String</p>                                                        
+                                                    </a>
+                                                </div>
+                                            </div>                                       
+                                                                                
+                                        
+                                                    
+                                   
+                                                        
+                        
+                             
+                                
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Digit_Occurrence" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,5,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>6</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                        <p class="list-name">Digit_Occurrence</p>                                                        
+                                                    </a>
+                                                </div>
+                                            </div>                                       
+                                                                                
+                                        
+                                                    
+                                   
+                                                        
+                        
+                             
+                                
+                             
+                                
+                                
+                                
+                                    
+                                                                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                            
+                                          
+                                                                                
+                                                                                                
+                                                                                                
+                                            <div class="problem-list completed ">
+                                                <div class="problem-item">
+                                                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="problem-action" title="Word_Positions" onclick="transferAnswer(&#39;contestComponent&#39;);removeIntervalObj();submitComponentAttemptFormAjax(&#39;attemptForm&#39;,0,6,&#39;/amphiSession/processSession/45164&#39;,1);return(true);">
+                                                        <div class="problem-number">
+                                                            <span>7</span>
+                                                            <div class="problem-status"><span class="eboxicon eboxicon-tick-sign"></span></div>
+                                                        </div>
+                                                        <p class="list-name">Word_Positions</p>                                                        
+                                                    </a>
+                                                </div>
+                                            </div>                                       
+                                                                                
+                                        
+                                                    
+                                   
+                                                        
+                        
+                    </div>                    
+                
+            
+        </div></div><div class="fakeScrollBar" style=""></div></div>
+    </div>
+</div>
+<div class="problem-legend-details"> 
+    <ul> 
+        <li class="completed"><span class="eboxicon eboxicon-tick-sign"></span><label>Completed</label></li> 
+        <li class="pending"><span></span><label>Pending</label></li> 
+        <li class="wrong-answer" style=" width: auto !important; "><span class="eboxicon eboxicon-close"></span><label>Wrong Answer</label></li>
+        <li class="inprogress"><span class=""></span><label>InProgress</label></li> 
+    </ul> 
+</div>
+<script>
+    $(document).ready(function(){
+        
+            $('.btn-section .finish-btn').css('display','none');
+            $('.review-btn').css('display','inline-block');
+                                    
+    });
+
+</script>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        eboxApp.attemptSideNavigationBar();
+    });
+</script>
+
+
+    <section class="program-wrapper">
+
+     <div id="left" class="problem-question" style="height: 557px; width: 341px;"><div class="scrollWrap"><div class="scrollContent">         
+             <h2 style="display: inline;">PROBLEM</h2>
+            
+            
+             <div class="problem-qus-content">
+                
+                
+                <h3 class="text-uppercase">Index_Max_Element</h3>
+                <p></p><p><span style="font-size:12pt"><span style="background-color:white">Write a python function that returns the first and last index of the maximum element in a list o fintegers.</span></span><br>
+&nbsp;</p>
+
+<p><strong><span style="font-size:12pt"><span style="background-color:white">Sample input1:</span></span></strong><br>
+<span style="font-size:12pt"><span style="background-color:white">[23,1,45,5,6]</span></span><br>
+<strong><span style="font-size:12pt"><span style="background-color:white">Output1:</span></span></strong><br>
+<span style="font-size:12pt"><span style="background-color:white">(2,2)</span></span></p>
+
+<p><strong><span style="font-size:12pt"><span style="background-color:white">Sample input2:</span></span></strong><br>
+<span style="font-size:12pt"><span style="background-color:white">[23,1,45,5,6,7,45]</span></span><br>
+<strong><span style="font-size:12pt"><span style="background-color:white">Output2:</span></span></strong><br>
+<span style="font-size:12pt"><span style="background-color:white">(2,6)</span></span><br>
+&nbsp;</p><p></p>
+                
+                    <hr>
+                    <h4><b>Additional Sample TestCases</b></h4>
+                
+                    <strong>Sample Input and Output 1 :</strong>
+                    <pre style="background : none;border: none;">[23,1,45,5,6,7,45]
+(2, 6)
+</pre>
+                
+                    <strong>Sample Input and Output 2 :</strong>
+                    <pre style="background : none;border: none;">[1,2,78,4,5,96,8,96,107,2]
+(8, 8)
+</pre>
+                
+                
+                
+             </div>         
+     </div></div><div class="fakeScrollBar enabled" style="height: calc(87.4411% - 0px); top: calc(0% + 0px); transform: translateY(0%);"></div></div>
+     <div id="resizer" class="resizer ui-draggable ui-draggable-handle" style="left: 341px;"><span class="ebox-icon resizer-icon"></span></div>
+     <div id="right" class="problem-editor expand-editor-content" style="height: 557px; width: 809px;">
+        <div class="enableScroll" style="height: 557px;"><div class="scrollWrap"><div class="scrollContent">
+            
+        
+            
+                
+                    <h2 class="program-head" style="display: inline-block;">PROGRAM</h2>
+                        <div class="tag" style="display:none;"><span class="tag-label" id="username"></span></div>
+                        
+                        <div class="editor-action">
+                            
+                            <div id="editor-portion">
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var clipbordText = "";
+</script>
+<style>
+    #select-language-info.dropdown-section{
+        background-color: #6f4f99;
+        width: 330px;
+        padding: 10px 20px;
+        text-align: center;
+        border: 1px solid #6f4f99;
+        margin-top: 10px;
+        position: absolute;
+        border-radius: 10px;
+        margin-left: -68px;
+        text-align: left;
+        z-index: 9999;
+    }
+    #select-language-info.dropdown-section::after{
+        content: "";
+        position: absolute;
+        display: block;
+        top: -13px;
+        right: 161px;
+        border-bottom: 12px solid #6f4f99;
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+    }
+    #select-language-info.dropdown-section p{
+        color: #fff;
+        font-size: 16px;
+        line-height: 23px;
+        text-align: left;
+    }
+    #select-language-info.dropdown-section .showmore{
+        text-align: left;
+        color: #fff;
+        margin-bottom: 10px;
+        display: inline-block;
+        font-size: 12px;
+        text-decoration: underline;
+        opacity: 0.6;
+    }
+</style>
+<link rel="stylesheet" href="./GT1.1_files/selectProgramEditor_online.css">
+
+<input type="hidden" name="previousInputsUrl" value="/contestComponent/userExecutedTestcases?probid=15931&amp;cid=50079&amp;asuaId=1976335" id="previousInputsUrl">
+<input type="hidden" id="isEditorialPresent" name="isEditorialPresent" value="false">
+<input type="hidden" id="computeComplexity" name="isEditorialPresent" value="false">
+<input type="hidden" id="complexityCallBack" name="complexityCallBack" value="false">
+
+
+
+<input type="hidden" id="assignedUsername" value="">
+
+<form action="https://app.e-box.co.in/contestComponent/index" method="post" name="codeEditorForm" id="codeEditorForm">
+    <input type="hidden" name="componentId" value="50079" id="componentId">
+    <input type="hidden" name="problemId" value="15931" id="problemId">
+    <input type="hidden" name="asuaId" value="1976335" id="asuaId">  
+    <input type="hidden" name="changeLanguage" value="true" id="changeLanguage">  
+    <div class="form-inline">
+        
+        
+            <input type="hidden" name="selectedLang" value="31" id="selectedLang">
+            <div class="form-group">
+                <span class="form-control">Python3</span>
+            </div>
+        
+        <div class="btn-section" style="display:none;">
+            <input type="hidden" id="attemptActionBtnWidth" data-width="673"><input onclick="jQuery.ajax({type:&#39;POST&#39;,data:jQuery(this).parents(&#39;form:first&#39;).serialize(), url:&#39;/contestComponent/selectProgramEditor&#39;,success:function(data,textStatus){jQuery(&#39;#change-lang-editor&#39;).html(data);globalComplete(data, textStatus);startEditorTrackOnline();initMaximizer(&#39;change-lang-editor&#39;,&#39;&#39;);removeGetEditor;},error:function(XMLHttpRequest,textStatus,errorThrown){errorCall(XMLHttpRequest);}});return false" type="button" value="Get Editor" id="change-editor" class="btn ebox-btn">   
+        </div> 
+        
+                                   
+                <div class="form-group" id="submission-alert-btn" style="display:none">
+                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="btn ebox-btn submit-solution" onclick="jQuery(&quot;#notAbleToSubmit&quot;).modal(&quot;show&quot;);jQuery(&quot;.ebox-popover&quot;).hide();">SUBMIT</a>
+                </div>                   
+                <div class="form-group" id="submission-btn" style="">
+                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" id="sendForSub" class="btn ebox-btn submit-solution" onclick="compileOrExecuteProgram(&quot;/contestComponent/contestSubmit&quot;,&quot;&quot;,5);jQuery(&quot;.ebox-popover&quot;).hide();">SUBMIT</a>                
+                </div>                    
+            
+        
+        <div class="form-group" style="display:">
+            <div id="expand-editor" class="expand"><span class="ebox-icon expand-icon"></span></div>
+        </div>
+    </div>
+</form>
+<div id="change-lang-editor"> 
+    
+        
+
+
+
+
+
+
+<script type="text/javascript">
+    var clipbordText = "";
+</script>
+<link rel="stylesheet" href="./GT1.1_files/selectProgramEditor_online.css">
+
+<style>
+.ace-tm .ace_gutter {
+    background: #f5f5f5;
+    color: #333;
+}
+
+pre{
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+        margin-left: 0px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    border-radius: 0;
+}
+
+.readonly-highlight{
+    background-color: red;
+    opacity: 0.2;
+    position: absolute;
+}
+.ace_editor, .ace_editor * {
+    font: 17px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace !important;
+}
+</style>
+<input type="hidden" name="previousInputsUrl" value="/contestComponent/userExecutedTestcases?probid=15931&amp;cid=50079&amp;asuaId=1976335" id="previousInputsUrl">
+
+<div id="clear" style="display: none;">
+    <a href="javascript:void(0)" style="margin-top:-15px;margin-right: -15px" class="label label-success pull-right" onclick="jQuery(&#39;#observations&#39;).hide();jQuery(&#39;#clear&#39;).hide();">X</a>            
+</div>
+<div id="observations" style="display: none;margin-top: 15px;margin-bottom: 5px;">
+    
+</div>
+<div class="alert-wrapper">    
+    <div id="submission-loading" style="padding-top: 3px;"></div>
+</div>
+
+<div id="programEditor" class="btn-section">  
+    
+    <a href="javascript:void(0)" class="btn ebox-btn" id="save-program" title="save" onclick="compileOrExecuteProgram(&quot;/contestComponent/processEditorProgram&quot;,&quot;Save&quot;,1);jQuery(&quot;.ebox-popover&quot;).hide();">
+        <span class="eboxicon eboxicon-save"></span> <span class="btn-label" style="display: inline;">Save</span>
+    </a>
+    
+
+    <a href="javascript:void(0)" id="executeOnlinePgm" class="btn ebox-btn" title="execute" onclick="jQuery(&#39;#observations&#39;).hide();jQuery(&#39;.ebox-popover&#39;).hide();jQuery(&#39;.stop-execution-btn&#39;).show(); executeButtonClick(); loadPreviousInputs();">
+        <span class="eboxicon eboxicon-execute"></span> <span class="btn-label" style="display: inline;">Execute</span>
+    </a>
+
+    
+    
+    
+        <a href="javascript:void(0)" class="btn ebox-btn" title="validate" onclick="jQuery(&quot;#observations&quot;).hide();executeSystemTestcaseOnline(&quot;/contestComponent/executeEditorProgramForSystemTestcase&quot;);jQuery(&quot;.ebox-popover&quot;).hide();">
+            <span class="eboxicon eboxicon-validate"></span> <span class="btn-label" style="display: inline;">Validate</span>
+        </a>
+    
+    
+    <a title="Copy" href="javascript:void(0)" onclick="copyText();jQuery(&#39;.ebox-popover&#39;).hide();" class="btn ebox-btn copy-paste">
+        <span class="eboxicon eboxicon-copy"></span><span class="btn-label" style="display: inline;">Copy</span>
+    </a>
+    <a title="Paste" href="javascript:void(0)" onclick="pasteText();jQuery(&#39;.ebox-popover&#39;).hide();" class="btn ebox-btn copy-paste">
+        <span class="eboxicon eboxicon-paste"></span><span class="btn-label" style="display: inline;">Paste</span>
+    </a> 
+     <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="btn text-btn previous-submission" onclick="obtainPreviousSubmissionOnline(&quot;/contestComponent/obtainPreviousSubmissionOnline&quot;);jQuery(&quot;.ebox-popover&quot;).hide();">Previous Submissions</a>                                                               
+     
+</div>
+<div id="problemEditorPane">
+    <form action="https://app.e-box.co.in/contestComponent/executeEditorProgram/executeEditorForm" method="post" name="executeEditorForm" onsubmit="return false" id="executeEditorForm">                
+        
+                                                      
+        <pre id="program" name="program" style="min-height: 450px; margin-left: 0px; font-size: 14pt; height: 514.286px;" class=" ace_editor ace-tm"><textarea class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; height: 17.1429px; width: 8.49861px; left: 54px; top: 0px;"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 0px; height: 548.571px; width: 50px;"><div class="ace_gutter-cell " style="height: 17.1429px;">1<span class="ace_fold-widget ace_start ace_open" style="height: 17.1429px;"></span></div><div class="ace_gutter-cell " style="height: 17.1429px;">2</div><div class="ace_gutter-cell " style="height: 17.1429px;">3</div><div class="ace_gutter-cell " style="height: 17.1429px;">4</div><div class="ace_gutter-cell " style="height: 17.1429px;">5<span class="ace_fold-widget ace_start ace_open" style="height: 17.1429px;"></span></div><div class="ace_gutter-cell " style="height: 17.1429px;">6<span class="ace_fold-widget ace_start ace_open" style="height: 17.1429px;"></span></div><div class="ace_gutter-cell " style="height: 17.1429px;">7</div><div class="ace_gutter-cell " style="height: 17.1429px;">8</div><div class="ace_gutter-cell " style="height: 17.1429px;">9<span class="ace_fold-widget ace_start ace_open" style="height: 17.1429px;"></span></div><div class="ace_gutter-cell " style="height: 17.1429px;">10</div><div class="ace_gutter-cell " style="height: 17.1429px;">11</div></div><div class="ace_gutter-active-line" style="top: 0px; height: 17.1429px;"></div></div><div class="ace_scroller" style="left: 50px; right: 0px; bottom: 0px;"><div class="ace_content" style="margin-top: 0px; width: 725px; height: 548.571px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 683.889px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"><div class="ace_active-line" style="height:17.142858505249023px;top:0px;left:0;right:0;"></div></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:17.142858505249023px"><span class="ace_keyword">def</span> <span class="ace_identifier">fl</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span><span class="ace_paren ace_rparen">)</span>:</div><div class="ace_line" style="height:17.142858505249023px">    <span class="ace_identifier">j</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_keyword ace_operator">-</span><span class="ace_constant ace_numeric">1</span></div><div class="ace_line" style="height:17.142858505249023px">    <span class="ace_identifier">m</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_support ace_function">max</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:17.142858505249023px">    <span class="ace_identifier">i</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">l</span>.<span class="ace_identifier">index</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">m</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:17.142858505249023px">    <span class="ace_keyword">for</span> <span class="ace_identifier">v</span> <span class="ace_keyword">in</span> <span class="ace_support ace_function">range</span><span class="ace_paren ace_lparen">(</span><span class="ace_support ace_function">len</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span><span class="ace_paren ace_rparen">)</span><span class="ace_keyword ace_operator">-</span><span class="ace_constant ace_numeric">1</span>,<span class="ace_keyword ace_operator">-</span><span class="ace_constant ace_numeric">1</span>,<span class="ace_keyword ace_operator">-</span><span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">)</span>:</div><div class="ace_line" style="height:17.142858505249023px"><span class="ace_indent-guide">    </span>    <span class="ace_keyword">if</span> <span class="ace_identifier">l</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">v</span><span class="ace_paren ace_rparen">]</span><span class="ace_keyword ace_operator">==</span><span class="ace_identifier">m</span>:</div><div class="ace_line" style="height:17.142858505249023px"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_keyword">break</span></div><div class="ace_line" style="height:17.142858505249023px">    <span class="ace_keyword">return</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">i</span>,<span class="ace_identifier">v</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:17.142858505249023px"><span class="ace_keyword">if</span> <span class="ace_identifier">__name__</span><span class="ace_keyword ace_operator">==</span><span class="ace_string">'__main__'</span>:</div><div class="ace_line" style="height:17.142858505249023px">    <span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_support ace_function">eval</span><span class="ace_paren ace_lparen">(</span><span class="ace_support ace_function">input</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">))</span></div><div class="ace_line" style="height:17.142858505249023px">    <span class="ace_keyword">print</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">fl</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span><span class="ace_paren ace_rparen">))</span></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="left: 4px; top: 0px; width: 8.49861px; height: 17.1429px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 9px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 9px; height: 188.571px;"></div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 9px; left: 50px; right: 0px;"><div class="ace_scrollbar-inner" style="height: 9px; width: 775px;"></div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></pre>                   
+        <input type="hidden" name="codemirrorlang" value="python" id="codemirrorlang">
+        <input type="hidden" name="selectedLangId" value="31" id="selectedLangId">
+        <input type="hidden" name="keywords" value="print" id="keywords">
+        <input type="hidden" name="operation" value="" id="operation">
+        <input type="hidden" name="savetype" value="" id="savetype">
+        <input type="hidden" name="codeTemplateString" id="codeTemplateString" value="">
+        <input type="hidden" name="metricString" value="" id="metricString">
+        <input type="hidden" name="comptype" value="contestComponent" id="comptype">
+        <input type="hidden" name="args" value="" id="args">
+        <input type="hidden" name="currentTimeLong" value="1576320664371" id="currentTimeLong">
+        <input type="hidden" name="autolink" value="/contestComponent/compileOrExecuteProgram" id="autolink">
+        
+        
+        <input type="hidden" name="disableCopyPaste" value="true" id="disableCopyPaste">
+        <input type="hidden" name="execprobid" value="15931" id="execprobid">
+        <input type="hidden" name="execcompid" value="50079" id="execcompid">
+        <input type="hidden" name="executionActive" value="false" id="executionActive">
+        <input type="hidden" name="userAttemptId" value="1976335" id="userAttemptId">
+        <input type="hidden" name="userSubStatusLink" value="/contestComponent/userSubmissionsForProblemOnline" id="userSubStatusLink">
+        <input type="hidden" name="nextProbLink" value="/amphiSession/processSession/45164" id="nextProbLink">
+        <input type="hidden" name="generateNextProblemLink" value="/contestComponent/loadNextRandomProblem" id="generateNextProblemLink">
+        <input type="hidden" name="componentClassName" value="contestComponent" id="componentClassName">
+
+    </form>
+</div>           
+
+<div class="bottomPane" title="Execute" id="tab11"> 
+    <div id="executePane">
+        <div class="form-inline">
+            
+                
+                    <div id="previousInputsdiv">
+                        <h4 id="previousInputsHead" onclick="$(&#39;#previousInputs&#39;).slideToggle();showAdvance(&#39;previousInputs-ico&#39;);">
+                            <i class="fa fa-plus-square-o" id="previousInputs-ico"></i>
+                            Previous Inputs
+                        </h4>
+                        <div id="previousInputs">
+                        </div> 
+                    </div>
+                
+                
+                
+                <br>
+                <div class="stop-execution-btn" style="display:none;">
+                    <a href="javascript:void(0)" id="stop-execution" onclick="stopRecieve()" class="btn ebox-btn"><span class="eboxicon eboxicon-execute"></span> <span class="btn-label">Stop</span>
+                    </a>
+                </div>
+                <span id="progress" style="float: left; font-weight: bold;padding-top: 5px;"></span>                
+                <div style="background-color: black;padding:2px;color: white;overflow: auto;" class="form-inline editor-console">
+                    <div id="output" style="max-height: 2000px;font-weight: bold;background-color: black;color: white;padding:2px;" onclick="resizeSplitPaneBottom(&#39;40%&#39;);">
+                    </div>
+                    <b>&nbsp;&gt;</b> <input type="text" class="editor-console" tabindex="100" name="input" id="input" size="100%" style="border:none;background-color: black;color:white;box-shadow: none;width:50%;" onkeypress="return sendOnKeyPress(event)" onclick="resizeSplitPaneBottom(&#39;40%&#39;);" disabled="disabled" onblur="resizeSplitPaneBottom(&#39;15%&#39;)">
+                </div>
+            
+            <div id="action-btn" class="btn-section text-center">
+                   
+
+
+
+ 
+                    
+         
+    
+        
+            <a href="javascript:void(0);" id="sessionSaveBtn" class="btn ebox-btn " style="background-color: #0a9910;" onclick="transferAnswer(&#39;contestComponent&#39;);submitAttemptFormWithActionType(&#39;attemptForm&#39;,&#39;/amphiSession/processSession/45164&#39;,&#39;Next&#39;);trankScrollFuns(&#39;click&#39;);return(true);">
+                Next
+            </a>
+        
+    
+
+<br>
+<br>
+
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div id="problemTabPane" style="margin-top: 7px;display: none;">
+    
+        <div class="widget  panel-primary">
+            <ul class="nav nav-tabs fancy"><li class="active in"><a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#program_tab" id="" data-toggle="tab">Program</a></li> <li class=""><a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#execute_tab" id="" data-toggle="tab">Output</a></li> </ul>
+            <div class="tab-content"><div class="tab-pane active in" id="program_tab"></div> <div class="tab-pane " id="execute_tab"></div> </div>
+        </div>
+        
+</div>
+
+<script>
+    ace.require("ace/ext/language_tools");
+    codeEditor = ace.edit("program");
+    codeEditor.setOptions({
+        enableBasicAutocompletion: true,
+        fontSize: "14pt",
+        minLines: 30,
+        maxLines: 30
+    });
+    $("#editorial-show").hide();
+    
+     
+    
+    
+        codeEditor.setTheme("ace/theme/textmate");
+    
+    codeEditor.session.setMode("ace/mode/"+document.getElementById('codemirrorlang').value);
+    function copyText() {
+        if(codeEditor.getCopyText() != ''){
+            clipbordText = codeEditor.getCopyText();
+        }
+        else{
+            $("#copyTextModal").modal('show');
+        }
+    }
+    function pasteText() {  
+        if(clipbordText != ''){
+            codeEditor.insert(clipbordText);
+            codeEditor.focus();
+        }
+        else{
+            $("#pasteTextModal").modal('show');
+        }
+    }
+    readonly_lines('-1');    
+        
+    $(document).ready(function(){
+        var canChangeLanguage = 'true';
+        var prevLang = $("#selectedLang").val();
+        clearTimeout(getStatusCall);
+        eboxApp.attemptBtnWidth();
+        eboxApp.expandAttemptEditor();
+        $('.program-head').css('display','inline-block');
+        $("#selectedLang").off().on("change",function(){ 
+            var selectedVal = $("#selectedLang").val();
+            if(selectedVal !== '' && selectedVal !== null){
+                showWait();
+                $(".ebox-popover").hide();  
+                if(false){
+                    canChangeLanguage = checkForChangeLanguage(prevLang);
+                }
+                if(canChangeLanguage=='true'){
+                    $('#change-editor').click();
+                }else{
+                    $("#selectedLang").val(prevLang);
+                    $("#select-language-info").css("display","block");
+                    hideWait();
+                }
+            }
+        });
+    });  
+    function checkForChangeLanguage(prevLang){
+        var result =  $.ajax({
+            url: '/contestComponent/checkSubmissionForALanguage',
+            type: 'POST',
+            async: false,
+            data: {
+                compId: $("#componentId").val(), 
+                problemId: $("#problemId").val(), 
+                asuaId: $("#asuaId").val(), 
+                selectedLang : prevLang
+            }
+        }).responseText;
+        return result;
+    }
+</script>
+
+    
+</div>
+<script>
+    var auto_reload_interval = 0;
+        
+    $(document).ready(function(){
+        $('.info-wrapper').addClass('hide-info');
+        if($('#assignedUsername').val()){
+            document.getElementById('username').innerHTML = $('#assignedUsername').val();
+            $('.tag').css('display','inline-block');
+        }
+    });
+    
+    
+</script>
+</div>
+                        </div>
+                
+                <div id="comments-post" class="comments" style="display:none;">
+                    <a class="btn ebox-text-btn" data-toggle="collapse" href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#expandComment" aria-expanded="false" aria-controls="expandComment"><i class="fa fa-commenting-o" aria-hidden="true"></i> Post your comments</a>
+                    <div class="collapse" id="expandComment">
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Type here..." id="your-comment"></textarea>
+                        </div>
+                        <div class="comment-action">
+                            <div class="left">
+                                <div class="text-action">
+                                    <a href="javascript:void(0)" class="btn ebox-text-btn">My Comments</a>
+                                    <a href="javascript:void(0)" class="btn ebox-text-btn">See All</a>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="text-action">
+                                    <a href="javascript:void(0)" class="btn ebox-text-btn"><div class="icon-text"><div class="left"><i class="fa fa-paperclip" aria-hidden="true"></i></div><div class="right">Attach</div></div></a>
+                                    <a href="javascript:void(0)" class="btn ebox-text-btn">Cancel</a>
+                                    <a href="javascript:void(0)" class="btn ebox-sm-btn btn-success">post</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        
+        </div></div><div class="fakeScrollBar enabled" style="height: calc(69.3649% - 0px); top: calc(0% + 0px); transform: translateY(0%);"></div></div>
+        <div class="ebox-popover attempt-status-popover" style="visibility:hidden;">
+            <div class="popover-wrapper">
+                <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="close-popover"><span class="eboxicon eboxicon-close"></span></a>
+                <div class="row-wrapper" id="submission-status-show">
+                </div>
+            </div>
+            
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    if(loadAdvertisement("/ad/load?code=submission-status-ad","submission-status-ad")){
+                        $(".ebox-popover.attempt-status-popover").addClass("add-problem-status");
+                        $(".ebox-popover.attempt-status-popover").css("bottom", "-"+$("#ad-placeholder-submission-status-ad").height()+"px");
+                    }
+                });
+            </script>
+        </div>        
+        <div class="ebox-popover test-case" style="display:none">
+            <div class="popover-wrapper popover-wrapper-show"><div class="scrollWrap"><div class="scrollContent">
+                <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="close-popover"><span class="eboxicon eboxicon-close"></span></a>
+                <div class="row-wrapper">
+                    <div class="col-wrapper col-wrapper-4">
+                        <h2>TESTCASES</h2>   
+                    </div>
+                    <div class="col-wrapper col-wrapper-4">
+                        <div id="systemTestcase">                            
+                        </div>
+                    </div>
+                </div>
+            </div></div><div class="fakeScrollBar" style=""></div></div>            
+        </div>
+        <div class="ebox-popover previous-submission" style="display:none">
+            <div class="popover-wrapper popover-wrapper-show"><div class="scrollWrap"><div class="scrollContent">
+                <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="close-popover"><span class="eboxicon eboxicon-close"></span></a>
+                <div class="row-wrapper">
+                    <div class="col-wrapper col-wrapper-4">
+                        <h2>Submissions</h2>   
+                    </div>
+                    <div class="col-wrapper col-wrapper-4">
+                        <div id="previous-submission-data">                            
+                        </div>
+                    </div>
+                </div>
+            </div></div><div class="fakeScrollBar" style=""></div></div>            
+        </div>
+        </div>
+    </section>
+   
+
+    <div class="modal-box" id="wrongAnswerStatusModal" style="display:none">
+        <div class="modal-box-content" id="showSubmissionStatus">
+           <button type="button" class="close" data-dismiss="modal" style="margin-top:-20px;">×</button>
+            <div class="icon-wrapper">
+                <span class="ebox-icon fail-icon"></span>
+            </div>  
+            <p class="small-text">Your Solution has not passed all the testcases. Please try again!</p> 
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>            
+        </div>
+    </div>
+    <div class="modal-box" id="acceptdStatusModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" style="display:none">
+        <div class="modal-box-content" id="showSubmissionStatus">
+            <button type="button" class="close" id="acceptdStatusModalCloseBtn" data-dismiss="modal" style="margin-top:-20px;">×</button>
+            <div class="icon-wrapper">
+                <span class="ebox-icon congratulation-icon"></span>
+            </div> 
+            <p class="big-text">Congratulations !</p>
+            <p class="small-text">Your Solution is Accepted !</p>
+            
+                
+                    <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" onclick="$(&#39;#acceptdStatusModal&#39;).modal(&#39;hide&#39;);transferAnswer(&#39;contestComponent&#39;);submitAttemptFormWithPage(&#39;attemptForm&#39;,1,&#39;/amphiSession/processSession/45164&#39;);return(true);" class="btn ebox-btn">Next Problem</a>
+                
+            
+        </div>  
+    </div>
+    <div class="modal-box" id="gameLoseModal" style="display:none">
+        <div class="won-popup game-popup">
+            <div class="popup-body">
+                <h3>RESULTS</h3>
+                <p>Luck hasn't favoured you this time</p>
+                <div class="img-wrapper">
+                    <img src="./GT1.1_files/game-loss.png">
+                </div>
+            </div>
+      </div>
+    </div>
+    <div class="modal-box" id="gameWonModal" style="display:none">
+        <div class="won-popup game-popup">
+            <div class="popup-body">
+                <h3>RESULTS</h3>
+                <p>You have nailed it like a Pro !</p>
+                <div class="img-wrapper">
+                    <img src="./GT1.1_files/game-won.png">
+                </div>
+            </div>
+      </div>
+    </div>
+    <div class="modal fade in" id="codeTemplateDialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Code Template</h4>
+                </div>
+                <div class="modal-body" style="overflow:auto">
+                    <textarea name="codeTemplate" id="codeTemplate" rows="20" cols="70" style="border: none" disabled="disabled">           
+                    </textarea>                    
+                </div>
+
+                <div class="modal-footer ">
+                    <a href="javascript:void(0);" class="btn ebox-btn" onclick="insertCodeTemplate();jQuery(&quot;#codeTemplateDialog&quot;).modal(&quot;hide&quot;);">Insert&nbsp;Template</a>                    
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+    
+           <div class="modal fade" id="rdialog" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">FYI :) </h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+        Cut / Copy / Paste is restricted.
+    
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+    
+           <div class="modal fade" id="notAbleToSubmit" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">Not able to submit</h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+        Problem with given up status cannot be submitted.
+    
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+    
+           <div class="modal fade" id="copyTextModal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">FYI :) </h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+        Please select a text before copy.
+    
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+    
+           <div class="modal fade" id="pasteTextModal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">FYI :) </h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+        Please copy a text before paste.
+    
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+    
+           <div class="modal fade" id="systemTestcaseDialog" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">System Testcase</h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+        <div id="systemTestcaseHint"></div>
+    
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+    <div class="modal fade in" id="complexityGraphDialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Complexity Graph</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="complexityGraphDiv"></div>                  
+                </div>               
+            </div>
+        </div>
+    </div>
+    <div class="modal fade in" id="editorialDialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <div id="editorialDiv" data-content-loaded="false"></div>                  
+                </div>               
+            </div>
+        </div>
+    </div>
+    
+ 
+ </div>
+ 
+
+        
+<script>
+    $(document).ready(function(){
+            eboxApp.attemptScreenPreferred();
+        showSwitchLayoutNormal();
+        $.ajax({
+            url: '/contestComponent/checkForPreviousAttempt',
+            type:'POST',
+            data : {
+              "probId" : $('#probId').val(),
+              "compId" : $('#compid').val(),
+              "amphiSessionUserAttemptId" : $('#amphiSessionUserAttemptId').val(),
+            },
+            success:function(data) {
+                if(data !== "success"){
+                    $('#right').empty();
+                    $('#right').html(data);
+                }
+            }
+        });
+        if($("#competitiveAssessment").val() == "true"){
+            competitiveAssessment("/contestComponent/obtainLatestSubmissionList");
+        }
+    });     
+    $(document).keyup(function(e) { 
+        if (e.keyCode == 27) { 
+            $("#wrongAnswerStatusModal").modal('hide');
+            $("#acceptdStatusModal").modal('hide');
+        } 
+    }); 
+    $('#editorialDialog').on('hidden.bs.modal', function(){
+        $(".dashboard-layout").click();
+    });
+    function callBackAttempt(){
+        eboxApp.setSizeForEditor();
+    }
+    closePopOver();    
+</script>
+<script src="./GT1.1_files/jquery.webticker.js.download"></script>
+
+
+            
+            
+            </div>
+            <div id="showChatDetails" style="width:325px;bottom:93px;max-height: 300px;position:fixed;right:0px;background-color:transparent;"></div>
+        </div>        
+                
+        
+           <div class="modal fade" id="meetingDialog" tabindex="-1">
+                <div class="modal-dialog" style="width:80%">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">Create Meeting</h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+            <div id="meetingDiv"></div>
+        
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+        
+        
+                
+</div>
+        <div class="modal fade" id="course-lock" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <p> Unlock this course with life time validity </p>
+                    <div class="btn-section" id="notAllowedContent">
+                        <a href="https://app.e-box.co.in/amphiSession/processSession/45164?popup=#" class="btn ebox-btn">Buy Now <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="./GT1.1_files/course-lock-popup.png" class="img-responsive">
+                        <div class="clr15"> </div>
+                        <div class="clr10"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+  </div>
+  
+    
+           <div class="modal fade" id="calandarDialog" tabindex="-1">
+                <div class="modal-dialog" style="width:800px;">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">Calendar</h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+	No Content
+    
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+  
+           <div class="modal fade" id="amphiNotificationDialog" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">Notification</h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+	<div id="amphiNotificationDiv"></div>
+  
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+  
+ 
+           <div class="modal fade" id="slotDialog" tabindex="-1">
+                <div class="modal-dialog" style="width:70%">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h4 class="modal-title">Enrolment Schedule</h4>
+                    </div>
+                
+                    <div class="modal-body" style="overflow:auto">
+                        
+                <div id="mileStoneSessionsDiv"></div>
+ 
+                    </div>
+            
+                        <div class="modal-footer ">
+                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                        </div>
+                    
+                  </div>
+                </div>
+            </div> 
+        
+ 
+ <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 " style="position: fixed;top: 393px;">
+<input type="hidden" name="enableP2PChat" value="false" id="enableP2PChat">
+<input type="hidden" name="P2PChatInterval" value="3000" id="P2PChatInterval">
+ 
+
+
+
+
+<script type="text/javascript" src="./GT1.1_files/chat.js.download"></script>
+<script type="text/javascript" src="./GT1.1_files/simplewebrtc.bundle.js.download"></script>        
+<style>
+        .chat_window {
+          position: absolute;
+          width: calc(100% - 20px);
+          max-width: 800px;
+          height: 500px;
+          border-radius: 10px;
+          background-color: #fff;
+          left: 50%;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+          background-color: #f8f8f8;
+          overflow: hidden;
+        }
+
+        .top_menu {
+          background-color: #fff;
+          width: 100%;
+          padding: 20px 0 15px;
+          box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+        }
+        .top_menu .buttons {
+          margin: 3px 0 0 20px;
+          position: absolute;
+        }
+        .top_menu .buttons .button {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 10px;
+          position: relative;
+          cursor:pointer;
+        }
+        .top_menu .buttons .button.close {
+          background-color: #f5886e;
+        }
+        .top_menu .buttons .button.minimize {
+          background-color: #fdbf68;
+        }
+        .top_menu .buttons .button.maximize {
+          background-color: #a3d063;
+        }
+        .top_menu .title {
+          text-align: center;
+          color: #bcbdc0;
+          font-size: 20px;
+        }
+
+        .amphi_messages {
+          position: relative;
+          list-style: none;
+          padding: 20px 10px 0 10px;
+          margin: 0;
+          height: 347px;
+          overflow: auto;
+        }
+        .amphi_messages .amphi_message {
+          clear: both;
+          overflow: hidden;
+          margin-bottom: 20px;
+          transition: all 0.5s linear;
+          opacity: 0;
+        }
+        .amphi_messages .amphi_message.left .avatar {
+          background-color: #f5886e;
+          float: left;
+        }
+        .amphi_messages .amphi_message.left .text_wrapper {
+          background-color: #ffe6cb;
+          margin-left: 20px;
+        }
+        .amphi_messages .amphi_message.left .text_wrapper::after, .amphi_messages .amphi_message.left .text_wrapper::before {
+          right: 100%;
+          border-right-color: #ffe6cb;
+        }
+        .amphi_messages .amphi_message.left .text {
+          color: #c48843;
+        }
+        .amphi_messages .amphi_message.right .avatar {
+          background-color: #fdbf68;
+          float: right;
+        }
+        .amphi_messages .amphi_message.right .text_wrapper {
+          background-color: #c7eafc;
+          margin-right: 20px;
+          float: right;
+        }
+        .amphi_messages .amphi_message.right .text_wrapper::after, .amphi_messages .amphi_message.right .text_wrapper::before {
+          left: 100%;
+          border-left-color: #c7eafc;
+        }
+        .amphi_messages .amphi_message.right .text {
+          color: #45829b;
+        }
+        .amphi_messages .amphi_message.appeared {
+          opacity: 1;
+        }
+        .amphi_messages .amphi_message .avatar {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: inline-block;
+        }
+        .amphi_messages .amphi_message .text_wrapper {
+          display: inline-block;
+          padding: 20px;
+          border-radius: 6px;
+          width: calc(100% - 85px);
+          min-width: 100px;
+          position: relative;
+        }
+        .amphi_messages .amphi_message .text_wrapper::after, .amphi_messages .amphi_message .text_wrapper:before {
+          top: 18px;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        .amphi_messages .amphi_message .text_wrapper::after {
+          border-width: 13px;
+          margin-top: 0px;
+        }
+        .amphi_messages .amphi_message .text_wrapper::before {
+          border-width: 15px;
+          margin-top: -2px;
+        }
+        .amphi_messages .amphi_message .text_wrapper .text {
+          font-size: 13px;
+          font-weight: 100;
+        }
+
+        .bottom_wrapper {
+          position: relative;
+          width: 100%;
+          background-color: #fff !important;
+          padding: 20px 20px;
+          position: absolute;
+          bottom: 0;
+        }
+        .bottom_wrapper .message_input_wrapper {
+          display: inline-block;
+          height: 50px;
+          border-radius: 25px;
+          border: 1px solid #bcbdc0;
+          width: calc(100% - 160px);
+          position: relative;
+          padding: 0 20px;
+        }
+        .bottom_wrapper .message_input_wrapper .message_input {
+          border: none;
+          height: 100%;
+          box-sizing: border-box;
+          width: calc(100% - 40px);
+          position: absolute;
+          outline-width: 0;
+          color: gray;
+        }
+        .bottom_wrapper .send_message,.accept_call,.reject_call{
+          width: 140px;
+          height: 50px;
+          display: inline-block;
+          border-radius: 50px;
+          color: #fff;
+          cursor: pointer;
+          transition: all 0.2s linear;
+          text-align: center;
+        }
+        .accept_call{
+          background-color: #a3d063;
+          border: 2px solid #a3d063; 
+        }
+        .send_message{
+          background-color: #49AFD1;
+          border: 2px solid #49AFD1;
+        }
+        .bottom_wrapper .send_message{
+            float:right;
+        }
+        .reject_call{
+            background:red;
+            border: 2px solid red;
+        }
+        .bottom_wrapper,.accept_call:hover {
+          color: #a3d063;
+          background: none;
+        }
+        .reject_call:hover{
+          color:red;
+          background:none;
+        }
+        .send_message:hover{
+          color:#49AFD1;
+          background:none;
+        }
+        .bottom_wrapper .send_message .text,.accept_call .text,.reject_call .text {
+          font-size: 13px;
+          font-weight: 100;
+          display: inline-block;
+          line-height: 48px;
+        }
+
+        .message_template {
+          display: none;
+        }
+        .text{
+            word-wrap: break-word;
+        }
+        #incoming_call{
+            padding:100px 50px;
+            background:#F8F8F8;
+        }
+    </style>
+
+
+
+<input type="hidden" name="logMesUrl" value="/userBatch/logMsg" id="logMesUrl">
+<input type="hidden" name="fromId" value="" id="fromId">
+<input type="hidden" name="toId" value="165374" id="toId">
+<input type="hidden" name="logType" value="PUBLIC" id="logType">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 chat-box hidden">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="chat_window">
+            <div class="top_menu">
+                <div class="buttons">
+                    <div class="button close"></div>
+                    <div class="button minimize"></div>
+                    <!--<div class="button maximize"></div>-->
+                </div>
+                <div class="title">Peer to Peer Chat</div>
+            </div>
+            <ul class="amphi_messages"></ul>
+            <div id="incoming_call" class="hidden">
+                <center>
+                        <div id="caller"></div>
+                        <div class="reject_call" onclick="declineChatCall($(&#39;#fromId&#39;).val(),165374)">
+                            <div class="icon"></div>
+                            <div class="text">Reject</div>
+                        </div>
+                        <div class="accept_call" onclick="acceptChatCall()">
+                            <div class="icon"></div>
+                            <div class="text">Accept</div>
+                        </div>
+                </center>
+            </div>
+<!--            <div class="bottom_wrapper clearfix">
+                <div class="message_input_wrapper">
+                    <input class="message_input" id="message_input" placeholder="Type your amphi_message here..." />
+                </div>
+                <div class="send_message" id="send_message">
+                    <div class="icon"></div>
+                    <div class="text">Send</div>
+                </div>
+            </div>-->
+        </div>
+        <div class="message_template">
+            <li class="amphi_message">
+                <div class="avatar"></div>
+                <div class="text_wrapper">
+                    <div class="text"></div>
+                </div>
+            </li>
+        </div>
+        <script language="javascript" type="text/javascript">
+           $(document).ready(function() {
+               pollingForPeerToPeerChatFromParticipant(165374);
+           });
+           
+           
+           function startChat(meetingCode) {
+                $.ajax({
+                url: "https://service.xirsys.com/ice",
+                data: {
+                    ident: "thana",
+                    secret: "5827e118-0b89-11e6-8c8c-b18ed17dcab4",
+                    domain: "e-box.co.in",
+                    application: "default",
+                    room: "default",
+                    secure: 1
+                },
+                success: function (data, status) {
+                    peerConnectionConfig = data.d;
+                    joinRoom(meetingCode,'MEDISETTI PRASAD',true,false,false,'');
+                }
+            });
+            
+            
+        }
+        </script>
+    </div>
+</div>
+
+ </div>
+    
+  
+
+
+
+
+
+    <div class="modal fade" id="processDialog" role="dialog" data-backdrop="static" style="display: none;"> <div class="modal-dialog processingDialog"> <div> <div class="modal-body"> <div class="eboxapp-loading"> <div class="loader" id="loader"> <span></span> <span></span> <span></span> <span></span> </div> </div> </div> </div> </div> </div>
+
+ <div></div>
+ <div class="modal fade" id="processDialogMute" role="dialog" data-backdrop="static">
+  <div class="modal-dialog processingDialog">  
+    <div class="modal-content" style="display: none;">            
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="errorDialog" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal-dialog processingDialog">  
+    <div class="modal-content">         
+      <div class="modal-body">        
+        <div class="imageLoading" style="float:left"></div>
+          <a class="pull-right" onclick="hideWait()" style="font-weight: bold;font-size: 14px;margin-right: 10px;color: #000;cursor: pointer;text-decoration: none">X</a>
+          <div style="float:left;padding-top:16px;padding-left:10px" id="errorDialogContent"></div>
+          <div style="clear:both"></div>
+        </div>            
+    </div>
+  </div>
+</div>
+ 
+ 
+  <div class="modal fade" id="amphimessageDialog" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">  
+    <div class="modal-content">   
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Message</h4>
+        </div>
+      <div class="modal-body">        
+          <div id="amphimessageDialogContent"></div>
+        </div>   
+        <div class="modal-footer ">            
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>         
+    </div>
+  </div>
+</div>
+ 
+  
+<div class="modal fade" id="amphiConfirmDialogModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-warning ebox-modal" role="document">
+        <div class="modal-content" style="width: inherit;">
+            <div class="modal-header">
+                Are you sure ?
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="primary-info" id="amphiConfirmDialogDiv">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-cancel" data-dismiss="modal" value="Cancel">
+                <button type="button" id="amphiConfirmDialogYes" class="btn btn-confirm" onclick="amphiConfirmStatus = true;" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function footerAlign() {
+        var getTotalDocHeight = $(document).height();
+        var getWindowDocHeight = $('body').height();
+        if(getTotalDocHeight > getWindowDocHeight){
+            $('#footer').addClass('sticky-footer');
+        } else { 
+            $('#footer').addClass('footer-bottom');
+        }
+    }
+</script>
+
+
+
+
+
+<input type="hidden" id="contextPathURL" name="contextPathURL" value="https://app.e-box.co.in:443">
+    
+
+    
+
+
+<style>
+.one-anime, .two-anime, .three-anime{
+    opacity : 1 !important;
+}
+@media (max-height: 700px){
+    #doubt-thread-participant-wrapper .mentor-wrapper .mentor-container {
+        height: 520px;
+    }
+    .customcard-rating.cc-rating.text-center{
+        margin-top:40% !important;
+    }
+}
+#activity-schedule-tab .no-event{
+    background-color: #f7f7f7;
+}
+#activity-schedule-tab .no-event p{
+    color : #cacaca;
+}
+</style>
+
+<div id="doubt-thread-participant-wrapper"></div>
+<div class="chat-wrap">
+    <span id="toggle1" class="toggle1">
+         
+            <input type="hidden" name="notificationCountToUserDoubtRespone" id="notificationCountToUserDoubtRespone" value="">
+            <div class="fab fab-asset1" id="one" title="Raise Doubts" onclick="openModalDoubtThreadPanel(&#39;/doubtThread/doubtThreadPanelForParticipant?loadDoubt=false&#39;)">
+                <img src="./GT1.1_files/raise_doubt.svg">                      
+            </div>
+            <div class="fab fab-asset4" id="two" onclick="openModalDoubtThreadPanel(&#39;/doubtThread/doubtThreadPanelForParticipant?loadDoubt=true&#39;)">
+                <div>
+                    <img src="./GT1.1_files/read_doubt.svg">
+                    <span class="notification-badge" style="display: none;"><label class="notificationlb notification-message-count-to-user" id="doubt-count" style="display:none"></label></span>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function(){
+                    obtainUnreadMessage('/doubtThread/obtainUnreadMessageCountForUser');
+                });
+                function openModalDoubtThreadPanel(url){
+                    $.ajax({
+                        url : url,
+                        success : function(data){
+                            $("#doubt-thread-participant-wrapper").html(data);
+                            $("#doubt-thread-participant-wrapper").show();
+                            $("body").attr("style","overflow:hidden;");
+                            $("#doubt-count").html("0");
+                            $("#doubt-count").hide();
+                        }
+                    });
+                }
+            </script>
+        
+        
+    </span>
+    
+        <div class="fab fab-bars fab-closed helpMenu" id="four">
+            <img class="small-icon" src="./GT1.1_files/menu_user.svg">
+            <div class="notify-sparkle" style="display:none;width: 70px;position: absolute;background: url(https://d27jjvs1kbv0db.cloudfront.net/static/images/online/notify-sparkle.gif);background-size: 120px;width: 55px;height: 55px;border-radius: 100%;"></div>
+        </div>
+    
+    <div id="card1" class="card-content card-1">
+        <div class="card side-anime">
+            <div class="card-body"> 
+                <div class="needhelpmenu">
+                    <div class="chatwindow" id="fullChatHelp">
+                        <div class="wholecard">
+                            <div class="clr"></div>
+                            <div class="filterbody">
+                                
+                                    <div class="messagecontent" id="messagecontent">
+                                        
+
+<style>
+.btn-doubt-send{
+    width: auto;
+    top: 40px;
+    height: 35px;
+    float: left;
+    left: 38%;
+    right: auto;
+}
+.panel-option{
+}
+</style>
+
+<div class="chatsection">
+    <div class="chat1">
+        Welcome to E-Box, For immediate help<br> please post your query/doubt here.
+    </div>
+    <div class="chat2" id="chat2" style="display:none;">
+    </div>
+    <div class="chat1" id="chat1" style="display:none;">
+        Thanks for your message, Our mentor will <br> respond you back shortly.
+    </div>
+    <div class="assignbtn1" id="textareadiv" style="text-align: center;">
+        <div class="textareadiv" style="bottom: 50px;padding-bottom: 6px;">
+            <textarea placeholder="Type your Doubt..." id="message" name="message" style="height:65px;"></textarea>
+        </div>
+        <div class="msgsent btn btn-default btn-doubt-send violetbtn" id="send" onclick="saveDoubt(&#39;/doubtThread/addDoubtThread&#39;)">
+            Raise Doubt
+        </div>
+    </div>    
+</div>
+                                    </div>
+                                
+                                <div class="clr15"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+<script>
+    $('.notification-badge').hide();
+    $("#four").click(function(e) {
+        $('.notify-sparkle').hide();
+        if ($("#four").hasClass("fab-closed")) {
+                $("#one").addClass("one-anime");
+                $("#two").addClass("two-anime");
+                $("#three").addClass("three-anime");
+                $("#four").removeClass("fab-closed");
+                $('.notification-badge').show();
+        } else {
+                $("#one").removeClass("one-anime");
+                $("#two").addClass("slide-down");
+                $("#four").addClass("fab-closed");
+                $('.card-content').hide();
+                $("#two").removeClass("two-anime");
+                $("#three").removeClass("three-anime");
+                $('.notification-badge').hide();
+        }
+    });
+</script>
+
+            
+ 
+
+    
+        <div><div>
+<style>@media (min-width: 768px){ #doubt-thread-participant-wrapper .mentor-wrapper .mentor-container{ height : 520px;; } }</style> <script> $(document).ready(function(){ $('#footer').remove(); }); </script>
+                <script>
+                    footerAlign();
+                </script>
+            </div>
+        </div>
+    
+
+
+<style>
+    .footer-bottom{
+        height:45px !important;
+        line-height:45px;
+        left: 0;
+        width:100%;
+        bottom: 0;
+        position:absolute;
+    }
+    .sticky-footer{
+        height:45px !important;
+        line-height:45px;
+        position:relative;
+        overflow:hidden;
+    }
+    .sticky-footer .top-section{
+        padding:0;
+        height:auto;
+    }
+</style>
+<script>
+function toggleAllDiscussionPanel(){
+    if($('.float-discussion-panel').css("display")=="none")
+        $('.float-discussion-panel').show();
+    else
+        $('.float-discussion-panel').hide();
+}
+function changeTheme(theme){
+      $.ajax({
+            url:'/user/setTheme',
+            success:function(){
+              window.location.reload(false);
+            },
+            data: {
+                  "theme":theme
+            },
+            type:'post'
+      });
+}
+$(document).ready(function(){
+  $("#footer").show();
+  $("#content").css({'padding-top':5});
+});
+
+$( window ).resize(function() {
+    footerAlign();
+});
+$(document).keydown(function(e) {
+    if(e.keyCode == 27) {
+        $(".modal").modal('hide');
+    }
+});
+</script>
+  
+  
+    
+    <input type="hidden" name="amphiSearchboxIgnoreDefaultWords" value="" id="amphiSearchboxIgnoreDefaultWords">
+    
+    <script>
+        var expireTimeOutInterval
+        $(".popup-modal").mouseover(function(){
+            clearInterval(expireTimeOutInterval)
+        });
+        $(".popup-modal").mouseout(function(){
+            startTokenTimeoutInterval()
+        });
+    </script>   
+    
+        <script>
+         var time = 5*60*1000;
+         var showOfflineNotification = true;
+         userOnlineFn('/user/online','https://app.e-box.co.in/user/logout',time);
+        </script>  
+    
+    
+        <img id="waiting-time-img" src="./GT1.1_files/tasks-yet-to-start.svg" style="display:none;">
+        <div id="user-response-content-div">
+    <input type="hidden" id="eventStreamIsAvailable" value="true">
+    <script type="text/javascript">
+        getEventStreamResponse("https://app.e-box.co.in:3000/eventStream?domain=user_response&chId=165374");
+        var eventSourceErrorCount = 0, eventSourceMessageCount = 0;
+        function getEventStreamResponse(url){
+            if(url.indexOf('eventStream') !== -1){
+                var source = new EventSource(url);
+                source.onerror = function(event) {
+                    eventSourceErrorCount++;
+                    if(((eventSourceErrorCount * 2) - eventSourceMessageCount) > 3){
+                        console.log(event);
+                        source.close();
+                    }
+                };
+                source.onmessage = function(event) {
+                    eventSourceMessageCount++;
+                    var data;
+                    try{
+                        var decodedString = atob(event.data);
+                        data = JSON.parse(decodedString);
+                        console.log(data);
+                        if(data.type !== "empty-push"){
+                            if(data[0] !== undefined){
+                                window[data[0].eventFunction](data);
+                            }
+                            else{
+                                window[data.eventFunction](data);
+                            }
+                        }
+                    }catch(err){
+
+                    }
+                };
+            }
+        }
+    </script>
+
+</div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $.ajax({
+                    url : "/user/userResponseFromNode",
+                    type: "POST",
+                    success : function(data){
+                        $('#user-response-content-div').html(data);
+                    }
+                });
+            });
+        </script>
+    
+
+</body></html>

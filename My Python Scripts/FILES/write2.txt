@@ -1,0 +1,18 @@
+The World Wide Web and its associated distributed information services, such as
+dsasdad fdsfdd fgsdfsd
+Yahoo!, Google, America Online, and AltaVista, provide rich, worldwide, on-line information
+dsasas cdsfddS sfdafdfwe
+services, where data objects are linked together to facilitate interactive access.
+cdsfsf
+Users seeking information of interest traverse from one object via links to another.
+1
+Such systems provide ample opportunities and challenges for data mining. For example,
+3
+understanding user access patterns will not only help improve system design (by
+3
+providing efficient access between highly correlated objects), but also leads to better
+4
+marketing decisions (e.g., by placing advertisements in frequently visited documents,
+5
+or by providing better customer/user classification and behavior analysis). Capturing
+6

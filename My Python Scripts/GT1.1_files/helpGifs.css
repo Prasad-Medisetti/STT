@@ -1,0 +1,17 @@
+.helpContainer{
+    padding:5px;
+    background:#FEFFCC;
+    border: 1px solid #FFEE99;
+    margin-top:5px;
+}
+
+#helpImg > img{
+    width:100%;
+}
+
+.topic{
+   font-size:20px;
+}
+.helpHolder{
+    padding-top:10px;
+}

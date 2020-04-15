@@ -1,0 +1,16 @@
+from itertools import permutations
+lst = []
+perm = []
+n = int(input())
+for i in range(n):
+    lst.append(input().split())
+for i in range(n):
+    perm.append(list(permutations(lst[i])))
+for i in range(n):
+    for j in list(perm(i)):
+        s = ''.join(list(j))
+        if int(s)%11==0:
+            print('Case #{}: YES'.format(i+1))
+            break
+        else:
+            print('Case #{}: NO'.format(i+1))

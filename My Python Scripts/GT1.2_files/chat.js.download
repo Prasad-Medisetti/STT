@@ -1,0 +1,818 @@
+var webrtc;
+var name;
+var p2pMeetingCode;
+var Message;
+   Message = function (arg) {
+       this.text = arg.text, this.message_side = arg.message_side;
+       this.draw = function (_this) {
+           return function () {
+               var $amphi_message;
+               $amphi_message = $($('.message_template').clone().html());
+               $amphi_message.addClass(_this.message_side).find('.text').html(_this.text);
+               $('.amphi_messages').append($amphi_message);
+               return setTimeout(function () {
+                   return $amphi_message.addClass('appeared');
+               }, 0);
+           };
+       }(this);
+       return this;
+   };
+   $(function () {
+       var getMessageText, message_side, sendMessage;
+       message_side = 'right';
+       getMessageText = function () {
+           var $message_input;
+           $message_input = $('.message_input');
+           return $message_input.val();
+       };
+       sendMessage = function (text) {
+           var $amphi_messages, amphi_message;
+           if (text.trim() === '') {
+               return;
+           }
+           $('.message_input').val('');
+           $amphi_messages = $('.amphi_messages');
+           amphi_message = new Message({
+               text: text,
+               message_side: message_side
+           });
+           amphi_message.draw();
+           return $amphi_messages.animate({ scrollTop: $amphi_messages.prop('scrollHeight') }, 300);
+       };
+       $('.send_message').click(function (e) {
+           var txt = $("#message_input").val()
+           webrtc.sendToAll('p2pChat', {message: txt, nick: "", time: displayTime()});
+           sendMessage(getMessageText());
+           logMsg(p2pMeetingCode,txt,$("#fromId").val(),$("#toId").val(),$("#logType").val(),function(){});
+       });
+       $('.message_input').keyup(function (e) {
+           
+           if (e.which === 13) {
+               var txt = $("#message_input").val()
+               if(txt.trim().length > 0){
+                    webrtc.sendToAll('p2pChat', {message: txt, nick: "", time: displayTime()});
+                    sendMessage(getMessageText());
+                    logMsg(p2pMeetingCode,txt,$("#fromId").val(),$("#toId").val(),$("#logType").val(),function(){});
+                }
+            }
+       });
+   });
+
+
+
+////////////////////////////////// P 2 P /////////////////////////////////////////
+
+function joinRoom(roomId, name,textEnabled,videoEnabled,audioEnabled,url) {
+    p2pMeetingCode = roomId;
+    var conf = {
+        // we don't do video
+        localVideoEl: (videoEnabled == 1)?"localVideo":"",
+        remoteVideosEl: (videoEnabled == 1)?"remoteVideo":"",
+        debug:false,
+        // dont ask for camera access
+        autoRequestMedia: (videoEnabled == 1 || audioEnabled == 1)?true:false,
+        autoRemoveVideos:true,
+//        detectSpeakingEvents: (videoEnabled == 1 || audioEnabled == 1)?true:false,
+        // dont negotiate media
+        nick: name,
+        media: { audio: (audioEnabled == 1)?true:false, video: (videoEnabled==1)?true:false},
+/*        receiveMedia: {
+            mandatory: {
+                OfferToReceiveAudio: true,
+                OfferToReceiveVideo: true
+            }
+        }*/
+        peerConnectionConfig:peerConnectionConfig
+    }
+    if(url != undefined && url != ''){
+        conf.url = url
+    }
+    webrtc = new SimpleWebRTC(conf);
+    
+    webrtc.on('localScreenRemoved', function () {
+        setScreenShareButton(true);
+    });
+    
+//    webrtc.on('remoteVolumeChange', function (peer, volume) {
+//        console.log('remoteVolumeChange ',peer.nick,volume);
+//        showVolume(document.getElementById('volume_' + peer.id), volume);       
+//    });
+    function showVolume(el, volume) {
+        if (!el) return;
+        if (volume < -45) volume = -45; // -45 to -20 is
+        if (volume > -20) volume = -20; // a good range
+        el.value = volume;
+    }
+    
+
+//    webrtc.config.peerConnectionConfig = {"iceServers": [{"url": "stun:192.168.2.28"},{"url": "turn:192.168.2.28"}]}
+    
+        console.log(webrtc);
+    webrtc.nick = name;
+//    console.log("inside join room");
+//    console.log(webrtc)
+    if(videoEnabled == 1 || audioEnabled == 1){
+        webrtc.on('readyToCall', function(peer) {
+            webrtc.joinRoom(roomId);
+        });   
+        
+        webrtc.on('localMediaError', function (err) {
+            console.log(err);
+            webrtc.joinRoom(roomId);
+        });
+    }
+    else{
+        webrtc.joinRoom(roomId);
+    }
+    // we have to wait until it's ready
+    webrtc.on('createdPeer', function(peer) {
+//        console.log('createdPeer', peer);
+    });   
+    
+    webrtc.connection.on('message', function(data) {
+        if (data.type === 'chat') {
+//            console.log('chat received', data);
+           $('.chat-conversation').append("<div class='chat-msg'>" +
+                "<div class='chart-msg-head'><i class='chatter_name'>" + data.payload.nick + "</i><i class='received-time'>" + data.payload.time + "</i></div><p>" + data.payload.message + "</p></div>");
+           scrollDiv(); 
+       }else if(data.type === 'pre-chat'){
+           var newElement = "<div class='chat-msg'>" +
+                "<div class='chart-msg-head'><i class='chatter_name'>" + data.payload.nick + "</i><i class='received-time'><i class='fa fa-clock-o'></i> " + data.payload.time + "</i></div><p>" + data.payload.message + "</p></div>"
+            $(newElement).prependTo('.chat-conversation').hide().fadeIn(1000);
+            if(newExcitingAlerts != undefined && !document.hasFocus()){
+                newExcitingAlerts(data.payload);
+            }
+       }
+       else if(data.type === 'p2pChat'){
+           var text = data.payload.message;
+           var $amphi_messages, amphi_message;
+            if (text.trim() === '') {
+                return;
+            }
+            $('.message_input').val('');
+            $amphi_messages = $('.amphi_messages');
+            var message_side = 'left';
+            amphi_message = new Message({
+                text: text,
+                message_side: message_side
+            });
+            amphi_message.draw();
+            return $amphi_messages.animate({ scrollTop: $amphi_messages.prop('scrollHeight') }, 300);
+       }
+    });
+    
+    
+    
+//       // a peer video has been added
+//            webrtc.on('videoAdded', function (video, peer) {
+//                console.log('video added', peer);
+////                alert("videoAdded");
+//                var remotes = document.getElementById('remoteVideo');
+//                console.log("remotes", remotes)
+//                console.log("video", video)
+//                if (remotes) {
+//                    var container = document.createElement('div');
+//                    container.className = 'videoContainer';
+//                    container.id = 'container_' + webrtc.getDomId(peer);
+//                    var nameDiv = document.createElement('div');
+//                    
+//                    nameDiv.innerHTML = peer.nick;                    
+//                    nameDiv.className = 'name';
+//                    container.appendChild(nameDiv);
+//                    container.appendChild(video);
+//                    remotes.appendChild(container);
+//
+//                    // suppress contextmenu
+//                    video.oncontextmenu = function () { return false; };
+//
+//                    // resize the video on click
+////                    video.onclick = function () {
+////                        container.style.width = video.videoWidth + 'px';
+////                        container.style.height = video.videoHeight + 'px';
+////                    };
+//
+//                    remotes.appendChild(container);
+//                }
+//            });
+//            // a peer was removed
+//            webrtc.on('videoRemoved', function (video, peer) {
+////                console.log('video removed ', peer);
+//                var remotes = document.getElementById('remoteVideo');
+//                var el = document.getElementById(peer ? 'container_' + webrtc.getDomId(peer) : 'localScreenContainer');
+////                alert(peer ? 'container_' + webrtc.getDomId(peer) : 'localScreenContainer');
+////                console.log("el   ",el);
+//                if (remotes && el) {
+//                    remotes.removeChild(el);
+//                }
+//            });
+    
+    
+    
+}
+function addMsg(divId,nick,time,message,msgLoadType,additionalClass,msgObj) {
+    
+//    console.log("divId "+divId+" message "+message+" msgLoadType "+msgLoadType);
+    var curUser = checkCurrentUser(nick);
+    var clsName = curUser ? 'cur-user':'';
+    var newMsg = msgObj;
+    var msgObj = (msgObj == undefined) ? {id:"new"} : msgObj;
+    additionalClass = additionalClass != undefined ? additionalClass:'';
+    var cMsg = document.createElement("div");
+    cMsg.setAttribute("class","msg-"+msgObj.id+" chat-msg "+ additionalClass);
+    var cMsgHead = document.createElement("div");
+    cMsgHead.setAttribute("class","chart-msg-head");
+    var cName = document.createElement("i");
+    cName.setAttribute("class","chatter_name "+clsName);
+    cName.innerHTML = nick;
+    
+    var receivedTime = document.createElement("i");
+    receivedTime.setAttribute("class","received-time");
+    
+    var clk = document.createElement("i");
+    clk.setAttribute("class","fa fa-clock-o");    
+    receivedTime.appendChild(clk);
+        
+    var tval = document.createElement("span");
+    tval.innerHTML = " &nbsp;"+time;
+    receivedTime.appendChild(tval);
+    
+    var msg = document.createElement("p");
+    if(newMsg != undefined){
+        if(msgObj.rawContent){        
+            msg.innerHTML = message;
+        }else{
+            var txtTag = document.createTextNode(message);
+            msg.appendChild(txtTag);
+        }
+    }else{
+        var displayType = $("#rawContent").val();
+        if(displayType == true || displayType == "true"){
+            msg.innerHTML = message;
+        }else{
+            var txtTag = document.createTextNode(message);
+            msg.appendChild(txtTag);
+        }
+    }
+        
+    cMsgHead.appendChild(cName);
+    cMsgHead.appendChild(receivedTime);
+    
+    if(msgObj.replyEnabled ){
+        var status = "Status";
+        if(msgObj.status){
+            status = msgObj.status;
+        }        
+        var batchStreamClass = 'bs_status_'+status.replace(/\s+/g, '_')
+        var moreOptions = document.createElement("a");
+        moreOptions.setAttribute("class","dropdown-toggle btn btn-default batchstream-statusdropdown "+batchStreamClass);
+        moreOptions.setAttribute("data-toggle","dropdown");
+        var span = document.createElement("span");
+        span.setAttribute("class","batchstream-statuslabel-"+msgObj.id);
+        moreOptions.appendChild(span);
+        span.innerHTML = status;
+        var caret = document.createElement("span");
+        caret.setAttribute("class","caret");   
+        caret.setAttribute("msg-id",msgObj.id);
+        caret.setAttribute("title",status);
+        caret.style.marginLeft = "10px";
+        moreOptions.appendChild(caret);    
+        var divEle = document.createElement("div");
+        divEle.style.display = "inline-block"
+        divEle.style.position = "relative";
+        divEle.style.marginLeft = "10px";
+        
+        var statusList = ["Posted","Answered","Replied","Closed","Announcement"]
+        
+        var ul = document.createElement("ul");
+        ul.setAttribute("class","dropdown-menu");
+        ul.setAttribute("role","menu");
+        for(var idx in statusList){
+            var li1 = document.createElement("li");
+            var aele = document.createElement("a");
+            aele.setAttribute("href","javascript:void(0)");
+            aele.setAttribute("msg-state",statusList[idx]);
+            aele.setAttribute("msg-id",msgObj.id);
+            li1.appendChild(aele);
+            aele.innerHTML = statusList[idx];
+            ul.appendChild(li1);
+            $(aele).click(function(event){setBSMessageState(event.target)});
+        }        
+        divEle.appendChild(moreOptions);
+        divEle.appendChild(ul);
+        
+        var answer = document.createElement("i");
+        answer.setAttribute("class","glyphicon glyphicon-ok-sign batchstream-answer");   
+        answer.setAttribute("msg-id",msgObj.id);
+        answer.setAttribute("title","Answer");
+        $(answer).click(function(event){answerBatchStreamMessage(event.target)});
+
+        var reply = document.createElement("i");
+        reply.setAttribute("class","fa fa-reply batchstream-reply");   
+        reply.setAttribute("msg-id",msgObj.id);
+        reply.setAttribute("title","Reply");
+        $(reply).click(function(event){replyBatchStreamMessage(event.target)});
+
+        cMsgHead.appendChild(answer);   
+        cMsgHead.appendChild(reply);    
+        cMsgHead.appendChild(divEle);    
+    
+    }
+    
+    if(msgObj.showStatus){
+        var statusString = "";
+        var extraClass = "";
+        if(msgObj.status == "Answered" || msgObj.status == "Closed" ){
+            statusString = msgObj.status;
+            if(msgObj.status == "Answered"){
+                extraClass = "label-success";
+            }
+            else{
+                extraClass = "label-warning";
+            }
+        }
+        else{
+            statusString = "Unresolved"
+            extraClass = "label-danger";
+        }
+        var msgStatus = document.createElement("span");
+        msgStatus.setAttribute("class","bsmsg-status label "+extraClass);
+        msgStatus.setAttribute("id","bsmsg-status-"+msgObj.id);
+        msgStatus.innerHTML = statusString;
+        msgStatus.style.marginLeft = '10px';
+        cMsgHead.appendChild(msgStatus);
+    }
+        
+    if(!msgObj.replyEnabled && msgObj.reopenenabled){
+        console.log(msgObj.status)
+        if(msgObj.status != "Answered" && msgObj.status != "Closed" ){
+            var answer = document.createElement("i");
+            answer.setAttribute("class","glyphicon glyphicon-ok-sign batchstream-markasclosed");   
+            answer.setAttribute("msg-id",msgObj.id);
+            answer.setAttribute("title","Mark as Closed");
+            $(answer).click(function(event){markAsClosedBsLog(event.target)});
+            cMsgHead.appendChild(answer); 
+        }
+
+        var reply = document.createElement("i");
+        reply.setAttribute("class","fa fa-reply batchstream-reply");   
+        reply.setAttribute("msg-id",msgObj.id);
+        reply.setAttribute("title","Reply");
+        reply.setAttribute("status",msgObj.status);
+        $(reply).click(function(event){askReopenBsLog(event.target);replyBatchStreamMessage(event.target,"")});
+  
+        cMsgHead.appendChild(reply);                
+        
+    }
+    cMsg.appendChild(cMsgHead);
+    cMsg.appendChild(msg);       
+    if(msgObj.replyList){
+        for(var idx =0;idx <msgObj.replyList.length;idx++){
+           addMsg(cMsg,msgObj.replyList[idx].from,msgObj.replyList[idx].time,msgObj.replyList[idx].message,msgLoadType,additionalClass,msgObj.replyList[idx])
+        }
+    }
+    
+//    var newMsg = "<div class='chat-msg "+additionalClass+"'>" +
+//                "<div class='chart-msg-head'><i class='chatter_name "+clsName+"'>" + nick + "</i><i class='received-time'><i class='fa fa-clock-o'></i> " + time + "</i></div><p>" + message + "</p></div>";        
+    if(msgLoadType === "prev"){
+        $(divId).append(cMsg);    
+    }
+    else{
+        $(cMsg).prependTo(divId).hide().fadeIn(1000);
+    }
+    
+}
+
+function initChat() {
+    /*$("#join").click(function() {
+        name = prompt("Please enter your name");
+        joinRoom("R1", name);
+        console.log("joined room");
+        console.log(name);
+        
+        
+        $('#chatter-title').html("<div class='left'>"+
+                                 "<div class='member-name'>"+name+
+                                 "</div>");
+    });*/
+    // Send a chat message
+    $('#send').click(function() {
+        sendGroupMessage();
+        
+    });
+    setInterval(function(){
+    updatePeers();
+    
+    },1000);
+    function updatePeers() {
+        //console.log("update peers");
+		if(!webrtc) {
+			return;
+		}
+        $("#members").empty();
+        //console.log('webrtc');
+        //console.log(webrtc);
+        //console.log("peers:"+webrtc.getPeers());
+        
+        if(!webrtc.getPeers()) {
+			return;
+        }
+        
+//        console.log("peers:"+webrtc.getPeers())
+        addMember(webrtc.config.nick);
+        webrtc.getPeers().forEach(function(p) {
+            //console.log(p);
+            addMember(p.nick,p.id);
+        });
+    }
+    
+    function addMember(nickName,peerId) {
+        $("#members").append("<div class='member'>"+
+                    "<span class='status fa fa-circle'></span>"+
+                    "&nbsp;&nbsp;&nbsp;"
+                        +nickName+
+                        "<span id='volume_'"+peerId+"'></span>"+
+                "</div>");
+    }
+    
+    $("#text").keyup(function(e) {
+        if(e.keyCode===13){
+            sendGroupMessage();
+        }
+});
+
+     
+        
+       $('.chat-btn').on('click', function(event){
+		event.preventDefault();
+                $('.chat-panel').addClass('is-visible');
+                $('.chat-btn').css("display","none");
+                $('.chat-close').fadeIn(1000);
+	});
+	
+	$('.chat-close').on('click', function(event){
+		if( $(event.target).is('.chat-close') || $(event.target).is('.chat-panel-close') ) { 
+			$('.chat-panel').removeClass('is-visible');
+			event.preventDefault();
+		}
+                
+               $('.chat-btn').fadeIn(2000); 
+               $('.chat-close').fadeOut(500);
+               
+	});
+
+    
+}
+
+function displayTime() {
+var d = new Date();
+    var minutes = d.getMinutes().toString().length === 1 ? '0'+d.getMinutes() : d.getMinutes();
+    var hours = d.getHours().toString().length === 1 ? '0'+d.getHours() : d.getHours();
+    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  
+    if(hours>12){
+        var hoursam=hours-12;
+        return months[d.getMonth()]+' '+d.getDate()+' ,'+hoursam+':'+minutes+' PM';
+    }
+    
+    else{
+        var hourspm=hours;
+        return months[d.getMonth()]+' '+d.getDate()+' ,'+hourspm+':'+minutes+'PM';
+    }
+    }
+
+function scrollDiv(){
+var objDiv = document.getElementById("chatter");
+objDiv.scrollTop = objDiv.scrollHeight;
+}
+
+
+function sendGroupMessage(){
+    var msg = $('#text').val();
+    if (msg) {
+        var time = displayTime();
+        webrtc.sendToAll('chat', {message: msg, nick: webrtc.nick, time: time});
+        $('.chat-conversation').append("<div class='chat-msg'>" +
+                "<div class='chart-msg-head'><i class='chatter_name'>" + webrtc.nick + "</i><i class='received-time'>" + time + "</i></div><p>" + msg + "</p></div>");
+
+
+        $('#text').val('');
+        scrollDiv();
+    }
+}
+
+function sendGroupMessageNew(msg){
+    if (msg) {
+        var time = displayTime();
+        webrtc.sendToAll('pre-chat', {message: msg, nick: webrtc.nick, time: time});
+        var newElement = "<div class='chat-msg'>" +
+                "<div class='chart-msg-head'><i class='chatter_name'>" + webrtc.nick + "</i><i class='received-time'> <i class='fa fa-clock-o'></i> &nbsp;" + time + "</i></div><p>" + msg + "</p></div>"
+        $(newElement).prependTo('.chat-conversation').hide().fadeIn(1000);
+//        $('.chat-conversation').append();
+//        addMsg('.chat-conversation',webrtc.nick,time,msg,'next')
+        scrollDiv();
+    }
+}
+
+
+function sendGroupMessageAndLog(meetingCode,msg,from,to,logType,additionalClass,pollingEnabled,fromname) {    
+    var time = displayTime();
+    var divid = '.chat-conversation';
+    var mltype = 'next';
+    var prefix = '';
+    if($("#refMsg").val()){
+        divid = $(".msg-"+$("#refMsg").val());
+        mltype = 'prev';
+        prefix = "<strong>@"+divid.find(".chatter_name ").html()+" :</strong>  ";
+    }
+    logMsg(meetingCode,msg,from,to,logType,function() {
+        var uname = fromname;
+        if(pollingEnabled == "false"){
+            webrtc.sendToAll('pre-chat', {message: prefix+msg, nick: webrtc.nick, time: time});            
+            uname = webrtc.nick;
+        }
+        addMsg(divid,uname,time,msg,mltype,additionalClass);
+//        var message = "<div class='chat-msg'>" +
+//                "<div class='chart-msg-head'><i class='chatter_name'>" + webrtc.nick + "</i><i class='received-time'>" + time + "</i></div><p>" + msg + "</p></div>";
+//        var oldMessage = $(divId).html();
+//        console.log(message)
+//        console.log(oldMessage);
+//        $(divId).html(message+oldMessage);
+//        $('.chat-conversation').append("<div class='chat-msg'>" +
+//            "<div class='chart-msg-head'><i class='chatter_name'>" + webrtc.nick + "</i><i class='received-time'>" + time + "</i></div><p>" + msg + "</p></div>");
+
+        scrollDiv();
+    });
+}
+
+function logMsg(meetingCode,msg,from,to,logType,callback) {
+    //alert(from + ' ' +to);
+    var url = $("#logMesUrl").val();
+    //alert("url "+url);
+    $.ajax({
+        url: url+"/"+meetingCode,
+        method:"POST",
+        data: {
+            userFrom: from,
+            userTo:to==""?"":to,
+            logType:logType,
+            msg:msg,
+            refMsg:$("#refMsg").val(),
+            refType:$("#refType").val(),
+            refuser:$("#refuser").val(),
+            rawContent:$("#rawContent").val()
+        },
+        success: function (data, status) {
+//            alert("response:"+data)
+            callback();
+        }
+    });
+}
+
+function toggleMute(ele){
+    if($(ele).attr('status')=='on'){
+        $(ele).attr('status','off');
+        webrtc.mute();
+        $(ele).removeClass("btn-success");
+        $(ele).addClass("btn-danger");
+        $(ele).find('i').removeClass('fa-microphone');
+        $(ele).find('i').addClass('fa-microphone-slash');
+    }else{
+        $(ele).attr('status','on');
+        webrtc.unmute()
+        $(ele).addClass("btn-success");
+        $(ele).removeClass("btn-danger");
+        $(ele).find('i').removeClass('fa-microphone-slash');
+        $(ele).find('i').addClass('fa-microphone');
+    }
+}
+/*function toggleScreenshare(ele) {
+    if($(ele).attr('status')=='on'){
+        $(ele).attr('status','off');
+        $(ele).removeClass("btn-success");
+        webrtc.shareScreen(function (err) {
+            if (err) {
+                console.log("Could not share screen")
+                console.log(err)
+                $(ele).attr('status','on');
+            } else {
+                $(ele).addClass("btn-danger");
+            }
+        });
+        
+    }else{
+        $(ele).attr('status','on');
+        $(ele).addClass("btn-success");
+        $(ele).removeClass("btn-danger");
+
+        if (webrtc.getLocalScreen()) {
+            webrtc.stopScreenShare();
+        }
+    }
+}*/
+function toggleVideo(ele){            
+    if($(ele).attr('status')=='on'){
+        $(ele).attr('status','off');
+        webrtc.pauseVideo();
+        $(ele).removeClass("btn-success");
+        $(ele).addClass("btn-danger");
+    }else{
+        $(ele).attr('status','on');
+        webrtc.resumeVideo()
+        $(ele).addClass("btn-success");
+        $(ele).removeClass("btn-danger");
+    }
+}
+
+function toggleScreenShare(ele){
+    console.log("inside screen share")
+    if (webrtc.getLocalScreen()) {
+        console.log("stop sharing")
+        webrtc.stopScreenShare();
+        setScreenShareButton(true);
+        
+    } else {
+        console.log("start sharing")
+        webrtc.shareScreen(function (err) {
+            if (err) {
+                console.log("sharing could not start")
+                console.log(err)
+                setScreenShareButton(true);
+            } else {
+                console.log("sharing started")
+                setScreenShareButton(false);
+            }
+        });
+
+    }
+}
+function setScreenShareButton(bool){
+    var btnText = bool ? 'share screen' : 'stop sharing';
+    $("#shareScreenButton span.btntxt").html(btnText);
+}
+
+function audjustVideoAreaHeight(){    
+    var newHeight = $("#remoteVideo").height();
+    $("#videosArea").height(newHeight);
+    $("#chatArea").height($("#discussionRightPane").height()-newHeight-30);
+}
+
+function addDummyVideo(){
+    var colors = ['#eee','#aaa','#bbb','red','blue','#fff','green'];
+        var vid = document.createElement("video");
+        $(vid).css({background:colors[$("#remoteVideo").children().size()%6]});
+//        $(vid).click(function(){$(this).remove();});
+//        $(vid).click(function(){
+//            $("#remoteVideo").prepend($(this));
+//            $("#remoteVideo video").removeClass("spl");
+//            $(this).addClass("spl");
+//        });
+        $("#remoteVideo").append(vid);
+    }
+              
+              
+function replyBatchStreamMessage(ele,status){
+    clearBatchStreamSelects();
+    $("#reply_answer_label").html("Reply to "+$(".msg-"+$(ele).attr("msg-id")+" .chatter_name").html()+":");
+    if($("#text").is(":visible")){
+        $("#text").focus();
+    }
+    if($("#advanced-editor").is(":visible")){
+        CKEDITOR.instances.cktext.focus();
+    }
+    $(".msg-"+$(ele).attr("msg-id")).find(".chatter_name cur-user").html()
+    $(".msg-"+$(ele).attr("msg-id")).addClass("highlight-batchstream");
+    $("#refMsg").val($(ele).attr("msg-id"));
+    $("#refuser").val($(".msg-"+$(ele).attr("msg-id")+" .chatter_name").html());
+    if(status == undefined){
+       $("#refType").val("reply");
+    }
+    else{
+        $("#refType").val(status);
+    }
+}
+
+function answerBatchStreamMessage(ele){
+    clearBatchStreamSelects();
+    $("#reply_answer_label").html("Answer to "+$(".msg-"+$(ele).attr("msg-id")+" .chatter_name").html()+":");
+    if($("#text").is(":visible")){
+        $("#text").focus();
+    }
+    if($("#advanced-editor").is(":visible")){
+        CKEDITOR.instances.cktext.focus();
+    }
+    $(".msg-"+$(ele).attr("msg-id")).find(".chatter_name cur-user").html()
+    $(".msg-"+$(ele).attr("msg-id")).addClass("highlight-batchstream");
+    $("#refMsg").val($(ele).attr("msg-id"));
+    $("#refuser").val($(".msg-"+$(ele).attr("msg-id")+" .chatter_name").html());
+    $("#refType").val("answer");    
+}
+
+function clearBatchStreamSelects(){
+    $("#refMsg").val("");
+    $("#refuser").val("");
+    $("#refType").val("");  
+    $("#reply_answer_label").html("");
+    $(".chat-msg").removeClass("highlight-batchstream");
+}
+
+function setBSMessageState(ele){
+    var id = $(ele).attr("msg-id");
+    var state = $(ele).attr("msg-state");
+    var url = $("#setBSMState").val();
+    clearBatchStreamSelects();
+    $.ajax({
+        url: url,
+        method:"POST",
+        data: {
+            state:state,
+            msgId:id
+        },
+        success: function (data, status) {
+            var classList = ["bs_status_Posted","bs_status_Answered","bs_status_Answer","bs_status_Resolved_without_answer","bs_status_Not_a_question","bs_status_Replied","bs_status_Reply ","bs_status_Announcement","bs_status_Answer_accepted"];
+            for(var i in classList){
+                $(".msg-"+id+" .batchstream-statusdropdown").removeClass(classList[i]);   
+            }
+            $(".msg-"+id+" .batchstream-statusdropdown").addClass('bs_status_'+data.replace(/\s+/g, '_'));
+            $(".batchstream-statuslabel-"+id+"").html(data);
+            if(state.trim() == "Announcement")
+                window.location.reload()
+        }
+    });
+}
+
+function toggleBSMessageState(ele){  
+        clearBatchStreamSelects();  
+        var state = $(ele).attr("msg-state");
+        if(state != "Answered"){
+            if($("#text").is(":visible")){
+                $("#text").focus();
+            }
+            if($("#advanced-editor").is(":visible")){
+                CKEDITOR.instances.cktext.focus();
+            }
+            $(".msg-"+$(ele).attr("msg-id")).addClass("highlight-batchstream");
+            $("#refMsg").val($(ele).attr("msg-id"));
+            $("#refType").val("reply");
+        }
+        else{
+            var id = $(ele).attr("msg-id");
+            var url = $("#setBSMState").val();
+            clearBatchStreamSelects();
+            $.ajax({
+                url: url,
+                method:"POST",
+                data: {
+                    state:state,
+                    msgId:id
+                },
+                success: function (data, status) { 
+                    $(ele).attr("title","Open");  
+                    $(ele).html("Open");
+                    $(ele).attr("msg-state","Replied");
+                }
+            });
+    }
+}
+
+function markAsClosedBsLog(ele){
+    var id = $(ele).attr("msg-id");
+    var url = $("#setBSMState").val();
+    clearBatchStreamSelects();
+    $.ajax({
+        url: url,
+        method: "POST",
+        data: {
+            state: "Closed/Answered",
+            msgId: id
+        },
+        success: function(data, status) {
+            $("#bsmsg-status-"+id).html("Closed");
+            $("#bsmsg-status-"+id).removeClass("label-danger");
+            $("#bsmsg-status-"+id).addClass("label-warning");
+        }
+    });
+}
+
+function askReopenBsLog(ele){
+    if($(ele).attr("status") == "Answered" || $(ele).attr("status") == "Closed"){
+        amphiConfirmDialog("Do you want to reopen this query?",function(){
+            var id = $(ele).attr("msg-id");
+        var url = $("#setBSMState").val();
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: {
+                state: "Posted",
+                msgId: id
+            },
+            success: function(data, status) {
+                $("#bsmsg-status-"+id).html("Unresolved");
+                $("#bsmsg-status-"+id).addClass("label-danger");
+                $("#bsmsg-status-"+id).removeClass("label-warning");
+                $("#bsmsg-status-"+id).removeClass("label-success");
+            }
+        });
+        },function(){})
+        
+    }
+}

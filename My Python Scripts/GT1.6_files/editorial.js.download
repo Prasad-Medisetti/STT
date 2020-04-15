@@ -1,0 +1,545 @@
+function createEditorial(){    
+    var audioEle = document.getElementById('audio-track');
+    var base64data;
+    var duration;
+    var recordOn = false;
+    var d;
+    var milliSec = 0;
+    var curAct = 0;
+    var dataJson = {}; 
+    
+    $(".close-popover").click(function () {
+        $(this).closest('.tutoring-popup').css("display", "none")
+        $(".tutoring-backdrop").hide();
+    });
+    
+    $("#pauseButton").click(function(event){
+	if (rec.recording){
+            rec.stop();
+            var stopDate = new Date();
+            milliSec += stopDate.getTime() - d.getTime()
+            recordOn = false;   
+            $("#recording").hide();
+            $("#pauseButton").hide();
+            $("#resumeButton").show();
+	}
+    }); 
+    
+    $("#recordButton").click(function(event){        
+        recordOn = true;
+        d = new Date();
+        startAudioRecording();       
+    });
+    
+    
+    
+    $("#resumeButton").click(function(event){
+        recordOn = true;
+        d = new Date();
+        rec.record()
+        $("#recording").show();
+        $("#resumeButton").hide();
+        $("#pauseButton").show();
+    });
+    
+     $("#previewButton").click(function(event){
+        $(".desc-line").removeClass("highlighted");
+        $(".line").removeClass("highlighted");
+        audioEle.play();
+        $("#deleteButton").hide();
+        if(document.getElementById("currentEditorialSeg").value == "program"){
+            $("#upload-rec").hide();
+        }
+        else{
+            $("#upload-desc-rec").hide();
+            $("#save-desc-rec").hide();
+        }
+        $("#previewButton").hide();
+        $("#previewStopButton").show();
+    });
+    
+    $("#previewStopButton").click(function(event){
+        audioEle.pause();
+        $("#deleteButton").show();
+        $("#previewStopButton").hide();
+        if(document.getElementById("currentEditorialSeg").value == "program"){
+            $("#upload-rec").show();
+        }
+        else{
+            $("#upload-desc-rec").show();
+            $("#save-desc-rec").show();
+        }
+        $("#previewButton").show();
+    });
+    
+    $("#stopButton").click(function(event){
+        recordOn = false;
+        var stopDate = new Date();
+        milliSec += stopDate.getTime() - d.getTime()
+        audioEle.addEventListener('loadedmetadata', function() {
+            duration = audioEle.duration;
+        });
+        $("#recording").hide();
+        $("#resumeButton").hide();
+        stopAudioRecording();        
+    });
+    
+    audioEle.onended = function() {
+        $("#deleteButton").show();
+        $("#previewStopButton").hide();
+        if(document.getElementById("currentEditorialSeg").value == "program"){
+            $("#upload-rec").show();
+        }
+        else{
+            $("#upload-desc-rec").show();
+            $("#save-desc-rec").show();
+        }
+        $("#previewButton").show();
+    };
+        
+    
+    $("#upload-rec").click(function(event){
+        if(document.getElementById('audio-track').src != ''){  
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', document.getElementById('audio-track').src , true);
+            xhr.responseType = 'blob';
+            xhr.onload = function(e) {
+                if (this.status == 200) {
+                    var myBlob = this.response;
+                    // myBlob is now the blob that the object URL pointed to.
+                    var url = URL.createObjectURL(myBlob);
+                    var au = document.getElementById('audio-sub-track');
+                    var codeEditorialContestId = document.getElementById('codeEditorialContestId').value;
+                    var reader = new FileReader();                                        
+                    reader.readAsDataURL(myBlob); 
+                    reader.onloadend = function() {
+                        base64data = reader.result;   
+                        var fd = new FormData();
+                        fd.append('id', codeEditorialContestId);
+                        fd.append('audioData', base64data);
+                        fd.append('segmentType', 'program');
+                        fd.append('saveEditorial', true);
+                        fd.append('duration', Math.ceil(duration));
+                        fd.append('activity', JSON.stringify(dataJson));
+                        $.ajax({
+                            type: "POST",
+                            url: $('#programSaveUrl').val(), 
+                            data: fd,
+                            before: showWait(),
+                            processData: false,
+                            contentType: false,
+                            success : function(response){ 
+                                hideWait();
+                                $("#previewButton").hide();
+                                $("#deleteButton").hide();
+                                $("#upload-rec").hide();
+                                showHelpBoard({
+                                    animationAlternateSelector: '#completed-recording',
+                                    animationTime : 5000,
+                                    hideHelp : false,
+                                    play : false
+                                });
+                            }
+                        });
+                    }  
+                    au.controls = true;
+                    au.src = url;
+                }
+            };
+            xhr.send();
+        }
+        else{
+            alert("Please Record before uploading");
+        }
+    });
+    
+    
+    $("#deleteButton").click(function(event){
+        dataJson = {};
+        d = 0;
+        milliSec = 0;
+        document.getElementById('audio-track').src = '';
+        deleteRecording();
+        window.location.href = $('#deleteUrl').val();
+    });
+    
+    $("#upload-desc-rec").click(function(event){
+        if(document.getElementById('audio-track').src != ''){  
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', document.getElementById('audio-track').src , true);
+            xhr.responseType = 'blob';
+            xhr.onload = function(e) {
+                if (this.status == 200) {
+                    var myBlob = this.response;
+                    // myBlob is now the blob that the object URL pointed to.
+                    var url = URL.createObjectURL(myBlob);
+                    var au = document.getElementById('audio-sub-track');
+                    var codeEditorialContestId = document.getElementById('codeEditorialContestId').value;
+                    var reader = new FileReader();                                        
+                    reader.readAsDataURL(myBlob); 
+                    reader.onloadend = function() {
+                        base64data = reader.result;  
+                        var fd = new FormData();
+                        fd.append('id', codeEditorialContestId);
+                        fd.append('audioData', base64data);
+                        fd.append('segmentType', 'description');
+                        if($('#saveEditorial').val() == 'true'){
+                            fd.append('saveEditorial', true);
+                        }
+                        fd.append('duration', Math.ceil(duration));
+                        fd.append('activity', JSON.stringify(dataJson));
+                        $.ajax({
+                            type: "POST",
+                            url: $('#programSaveUrl').val(), 
+                            data: fd,
+                            before: showWait(),
+                            processData: false,
+                            contentType: false,
+                            success : function(response){ 
+                                hideWait();
+                                if(response.saveEditorial == false){
+                                    dataJson = {};
+                                    d = 0;
+                                    milliSec = 0;
+                                    if(response)
+                                    $("#desc-area-edit").hide();
+                                    $("#code-area-edit").show();
+                                    $("#recordButton").show();
+                                    $("#stopButton").hide();
+                                    $("#pauseButton").hide();
+                                    $("#previewButton").hide();
+                                    $("#deleteButton").hide();
+                                    $("#upload-desc-rec").hide();
+                                    $("#save-desc-rec").hide();
+                                    $(".line").removeClass("highlighted");                                
+                                    document.getElementById('audio-track').src = '';
+                                    document.getElementById("currentEditorialSeg").value = "program";
+                                    window.location.href = $('#refreshUrl').val();
+                                }
+                                else{
+                                    $("#previewButton").hide();
+                                    $("#deleteButton").hide();
+                                    $("#upload-rec").hide();
+                                    showHelpBoard({
+                                        animationAlternateSelector: '#completed-recording',
+                                        animationTime : 5000,
+                                        hideHelp : false,
+                                        play : false
+                                    });
+                                }
+                            }
+                        });
+                    }  
+                    au.controls = true;
+                    au.src = url;
+                    removeRecording();
+                }
+            };
+            xhr.send();
+        }
+        else{
+            alert("Please Record before uploading");
+        }
+    });
+    
+    audioEle.addEventListener('onseeked', function(){
+        $(".line").removeClass("highlighted");
+    });
+    
+    audioEle.addEventListener('timeupdate',function(){ 
+        var currentTime = Math.trunc(audioEle.currentTime)
+        if(curAct != currentTime && dataJson[currentTime] != undefined){
+            if(document.getElementById("currentEditorialSeg").value == "program"){
+                $(".line").removeClass("highlighted");
+            }
+            else{
+                $(".desc-line").removeClass("highlighted");
+            }
+            curAct = currentTime;
+            $(".number"+dataJson[currentTime]['line']).addClass("highlighted");
+            var target = ".number"+dataJson[currentTime]['line'];
+            var parentTarget;
+            if(document.getElementById("currentEditorialSeg").value == "program"){
+                parentTarget = '#code-area-edit'
+                target = ".gutter "+target
+            }
+            else{
+                parentTarget = '#desc-area-edit'
+            }
+            
+            $('.scrollContent').stop().animate({                
+                scrollTop: $(target).offset().top - $(parentTarget).offset().top
+            }, 600);
+        }
+    },false);
+    
+    $("#mainHighlighter div.line").click(function(event){
+        if(recordOn == true && rec != undefined  && rec.recording){
+            var targetElement = $(event.currentTarget)
+            var theClass = $(targetElement).attr('class');
+            var line = -1;
+            var classArr = theClass.split(" ")
+            for(i = 0; i < classArr.length; i++){  
+                if(classArr[i].indexOf("number") >= 0){
+                    var className = classArr[i]
+                    line = parseInt(className.replace("number",""))
+                }
+            }             
+            if(line != -1){
+                var currDate = new Date();
+                var time = Math.trunc(((currDate.getTime() - d.getTime()) + milliSec)/1000)
+                var fileName = $(targetElement).closest( "[data-file]" ).attr('data-file')
+                dataJson[time.toString()] = {'fileName':fileName,'line':line}
+                $(".line").removeClass("highlighted");
+                $(".number"+line).addClass("highlighted");                
+            }
+        }
+        else{
+            alert("please start the recording")
+        }
+    });
+    
+    function highlightContent(targetElement){  
+        if(recordOn == true && rec != undefined && rec.recording){
+            var theClass = $(targetElement).attr('class');
+            var line = -1;
+            var classArr = theClass.split(" ")
+            for(i = 0; i < classArr.length; i++){  
+                if(classArr[i].indexOf("number") >= 0){
+                    var className = classArr[i]
+                    line = parseInt(className.replace("number",""))
+                }
+            } 
+            if(line != -1){
+                var currDate = new Date();
+                var time = Math.trunc(((currDate.getTime() - d.getTime()) + milliSec)/1000)
+                dataJson[time.toString()] = {'line':line}
+                $(".desc-line").removeClass("highlighted");
+                $(".number"+line).addClass("highlighted");     
+                
+            }            
+        }
+        else{
+            alert("please start the recording")
+        }
+     
+    }
+    jQuery.fn.single_double_click = function(single_click_callback, double_click_callback, timeout) {
+        return this.each(function(){
+          var clicks = 0, self = this;
+          jQuery(this).click(function(event){
+            clicks++;
+            if (clicks == 1) {
+              setTimeout(function(){
+                if(clicks == 1) {
+                  single_click_callback.call(self, event);
+                } else {
+                  double_click_callback.call(self, event);
+                }
+                clicks = 0;
+              }, timeout || 300);
+            }
+          });
+        });
+    }
+    
+    $("#desc-Area-edit .desc-line").single_double_click(function (e) {
+        e.stopPropagation();
+        if(e.target == e.currentTarget){
+            highlightContent(this);
+        }
+      }, function (e) {
+        e.stopPropagation();
+        if(e.target == e.currentTarget && $(this).parent().prop("tagName").toLowerCase() != "body"){
+            highlightContent($(this).parent());
+        }
+    })
+}
+
+function playEditorial(){
+    window.location.href = $('#editorialShowUrl').val();
+}
+
+
+function showHelpBoard(options){
+    if (document.querySelector(options.animationSelector)  && document.querySelector('.editorial-text-animation') && options.hideHelp == true) {
+        document.querySelector(options.animationSelector).style.width = '100%';
+        document.querySelector(options.animationSelector+' .editorial-text-animation').style.opacity = '1';
+        setTimeout(function () {
+            document.querySelector(options.animationSelector).style.right = '0';
+            document.querySelector(options.animationSelector).style.left = 'inherit';
+            document.querySelector(options.animationSelector).style.width = '0';
+            if(options.play  === true){
+                playAudio(options)
+            }
+        }, options.animationTime)
+    }
+    else if (document.querySelector(options.animationAlternateSelector)  && document.querySelector('.editorial-text-animation')) {
+        document.querySelector(options.animationAlternateSelector).style.width = '100%';
+        document.querySelector(options.animationAlternateSelector+' .editorial-text-animation').style.opacity = '1';
+    }        
+}
+
+
+function playAudio(options){
+    setTimeout(function () {
+        options.audioElement.load();
+        if($('#editorialDialog').length && !$('#editorialDialog').is(':visible')){
+            $('.play-pause-button').show();
+            $(".editorial-backdrop").show();
+        }
+        else{
+            options.audioElement.play();
+        }
+    }, 1000);
+}
+
+
+function showEditorial(){
+    var audioEle = document.getElementById('audio-track');
+    var audioProEle = document.getElementById('audio-pro-track');
+    var audioDescEle = document.getElementById('audio-desc-track');
+    var curAct = 0;
+    var segmentIndex = 1;
+    var editorialEnd = false;   
+    var segmentCnt = parseInt($("#segmentCount").val())
+    var segmentJsonString = $('#segmentJsonString').val();  
+    var segmentJson = JSON.parse(segmentJsonString.replace(/&quot;/g,'"')); 
+    var jsonString = '';    
+    var segmentName = '';
+    var prevSegmentName = '';
+    var dataJson = {} 
+    if(segmentCnt >= 1){
+        segmentName = segmentJson[segmentIndex]
+        jsonString = $('#'+segmentName+'JsonString').val();    
+        dataJson = JSON.parse(jsonString.replace(/&quot;/g,'"')); 
+    }
+    
+    $("#playPopUpEditorial").click(function(){
+        $(".desc-line").removeClass("highlighted");
+        $(".line").removeClass("highlighted");
+        prevSegmentName = segmentJson[segmentIndex-1]
+        segmentIndex = 1;
+        segmentName = segmentJson[segmentIndex]
+        console.log("prevSegmentName",prevSegmentName)
+        $('.'+prevSegmentName+'-editorial-show').hide();
+        $('.'+segmentName+'-editorial-show').show();
+        jsonString = $('#'+segmentName+'JsonString').val();    
+        dataJson = JSON.parse(jsonString.replace(/&quot;/g,'"'));        
+        document.querySelector("#completed-editorial").style.right = '0';
+        document.querySelector("#completed-editorial").style.left = 'inherit';
+        document.querySelector("#completed-editorial").style.width = '0';
+        editorialEnd = false;
+        audioEle.src = $('#audio-track-'+segmentName).attr('src');
+        document.getElementById('currentEditorialSeg').value = segmentName;
+        $("#play-editorial").click();
+    });
+    
+    
+    $('#play-start').click(function(){
+        document.querySelector('#start-editorial').style.right = '0';
+        document.querySelector('#start-editorial').style.left = 'inherit';
+        document.querySelector('#start-editorial').style.width = '0';
+        $("#play-editorial").click();
+    });
+    
+    $(".dashboard-layout").click(function(e){
+        e.stopPropagation();
+        if(!audioEle.paused){
+            $('#play-editorial').show();
+            $(".editorial-backdrop").show();
+        }
+        audioEle.pause();
+    });
+    
+    $(".start-recording-animation").click(function(e){
+        e.stopPropagation();
+    });
+    
+    $("#play-editorial").click(function(e){
+        e.stopPropagation();
+        audioEle.play();
+        $('#play-editorial').hide();
+        $(".editorial-backdrop").hide();
+    });
+    
+    audioEle.addEventListener('onseeked', function(){
+        if(document.getElementById("currentEditorialSeg").value == "program"){
+            $(".line").removeClass("highlighted");
+        }
+        else{
+            $(".desc-line").removeClass("highlighted");
+        }
+    });
+    
+    $('#playButton').click(function(){
+        audioProEle.load();
+        audioProEle.oncanplaythrough = function() {
+            alert("Can play through video without stopping");
+            audioProEle.play();
+        }; 
+    });
+    
+    audioEle.onended = function() {
+        segmentIndex++;
+        if(segmentIndex <= segmentCnt){
+            $(".line").removeClass("highlighted");
+            segmentName = segmentJson[segmentIndex]
+            prevSegmentName = segmentJson[segmentIndex - 1]
+            jsonString = $('#'+segmentName+'JsonString').val();    
+            dataJson = JSON.parse(jsonString.replace(/&quot;/g,'"'));
+            $(".desc-line").removeClass("highlighted");
+            $(".line").removeClass("highlighted");
+            $('.'+prevSegmentName+'-editorial-show').hide();
+            $('.'+segmentName+'-editorial-show').show();    
+            curAct = 0;
+            document.getElementById('currentEditorialSeg').value = segmentName;
+            editorialEnd = true;
+            audioEle.src = $('#audio-track-'+segmentName).attr('src');            
+            showHelpBoard({
+                animationSelector: '#next-editorial',
+                animationTime : 5000,
+                hideHelp : true,
+                play : true,
+                audioElement : audioEle
+            })            
+        }
+        else{
+            showHelpBoard({
+                animationAlternateSelector: '#completed-editorial',
+                animationTime : 5000,
+                hideHelp : false,
+                play : false
+            })
+        }
+    };
+    
+    audioEle.addEventListener('timeupdate',function(){ 
+        var currentTime = Math.trunc(audioEle.currentTime)
+        if(curAct != currentTime && dataJson[currentTime] != undefined){
+            if(document.getElementById("currentEditorialSeg").value == "program"){
+                $(".line").removeClass("highlighted");
+            }
+            else{
+                $(".desc-line").removeClass("highlighted");
+            }
+            curAct = currentTime;
+            
+            $(".number"+dataJson[currentTime]['line']).addClass("highlighted");
+            var target = ".number"+dataJson[currentTime]['line'];						
+            var parentTarget;            
+            if(segmentName == "program"){
+                parentTarget = '#code-area-edit'
+                target = ".gutter "+target
+            }
+            else{
+                parentTarget = '#desc-area-edit'
+            }
+            
+            $('#enableEditorialScroll .scrollContent').stop().animate({                
+                scrollTop: $(target).offset().top - $(parentTarget).offset().top
+            }, 600);
+        }
+    },false);       
+}
+

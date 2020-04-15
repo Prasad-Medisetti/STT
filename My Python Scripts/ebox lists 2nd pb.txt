@@ -1,0 +1,18 @@
+n = int(input())
+l = list(map(int,input().split()))
+l.sort(reverse = True)
+
+c = 0
+m = 1
+i = 0
+while (c !=2 and i < n-1):
+    if(l[i] == l[i+1]):
+        m *= l[i]
+        i += 2
+        c +=1
+    else:
+        i += 1
+if(c == 2):
+    print (m)
+else:
+    print(-1)

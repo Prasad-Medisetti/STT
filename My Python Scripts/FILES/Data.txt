@@ -1,0 +1,11 @@
+The World Wide Web and its associated distributed information services, such as
+Yahoo!, Google, America Online, and AltaVista, provide rich, worldwide, on-line information
+services, where data objects are linked together to facilitate interactive access.
+Users seeking information of interest traverse from one object via links to another.
+Such systems provide ample opportunities and challenges for data mining. For example,
+understanding user access patterns will not only help improve system design (by
+providing efficient access between highly correlated objects), but also leads to better
+marketing decisions (e.g., by placing advertisements in frequently visited documents,
+or by providing better customer/user classification and behavior analysis). Capturing
+user access patterns in such distributed information environments is called Web usage
+mining (or Weblog mining).

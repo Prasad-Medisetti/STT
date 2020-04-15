@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+// #define int long long
+typedef long long ll;
+#define fi first
+#define se second
+#define pii pair<int,int>
+#define endl '\n'
+#define fr(i, a, b) for(int i = a; i <= b; i++)
+#define sz(s) (int)s.size()
+#define y1 fdfbvfds
+typedef long double f80;
+#define all(x) x.begin(), x.end()
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+ll rand(ll l,ll r){
+    uniform_int_distribution<ll> uid(l, r);
+    return uid(rng);
+}
+
+int a[15];
+const int NN = 1000;
+bool dp[11][11][2 * NN];
+
+signed main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int T;
+    cin >> T;
+    fr(kase, 1, T) {
+        memset(dp, 0, sizeof dp);
+        cout << "Case #" << kase << ": ";
+        int val = 0, cnt = 0;
+        fr(i, 1, 9) {
+            cin >> a[i];
+            int c = (a[i] + 1) / 2 - (a[i] / 2);
+            cnt += c;
+            val = (val + i * c) % 11;
+        }
+        dp[0][val][cnt + NN] = 1;
+        fr(i, 0, 8) {
+            fr(j, 0, 10) {
+                fr(k, 0, 2 * NN - 1) {
+                    if(!dp[i][j][k]) continue;
+                    fr(x, -min(50, (a[i + 1] + 1) / 2), min(50, a[i + 1] / 2)) {
+                        if(k + 2 * x >= 0 && k + 2 * x < 2 * NN) {
+                            int kk = ((j + 2 * (i + 1) * x) % 11 + 11) % 11;
+                            dp[i + 1][kk][k + 2 * x] = 1;
+                        }
+                    }
+                }
+            }
+        }
+        if(dp[9][0][NN] || dp[9][0][NN + 1] || dp[9][0][NN - 1]) {
+            cout << "YES" << endl;
+        }
+        else {
+            cout << "NO" << endl;
+        }
+    }
+    return 0;
+}
