@@ -1,2 +1,2 @@
-# _____B.Tech-STT_____
- STT
+# B.Tech STT
+# Special Technical Training 
