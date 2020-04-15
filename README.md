@@ -1,2 +1,2 @@
 # B.Tech STT
-# Special Technical Training 
+  Special Technical Training 
