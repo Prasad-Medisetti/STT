@@ -77,11 +77,9 @@ Take the 1st bus on day 1 (X1 = 1).
 '''
 
 for t in range(int(input())):
-    n, d = [int(x) for x in input().split()]
-    l = [int(x) for x in input().split()]
-    peaks = 0
-    for i in range(1,n):
-        if (i+1)<n and (l[i-1]<l[i] and l[i]>l[i+1]):
-            peaks+=1
-        
-    print("Case #{}: {}".format(t+1,peaks))
+    N, D = [int(x) for x in input().split()]
+    X = [int(x) for x in input().split()]
+    latest = D
+    for i in range(N-1, -1, -1):
+        latest = X[i] * (latest//X[i])
+    print("Case #{}: {}".format(t+1, latest))

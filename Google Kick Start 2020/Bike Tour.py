@@ -77,5 +77,5 @@ for t in range(int(input())):
     for i in range(1,n):
         if (i+1)<n and (l[i-1]<l[i] and l[i]>l[i+1]):
             peaks+=1
-        
     print("Case #{}: {}".format(t+1,peaks))
+    
