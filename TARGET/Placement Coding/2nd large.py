@@ -1,0 +1,5 @@
+n = int(input())
+data = set(map(int,input().split()))
+print(data)
+print(sorted(data))
+print(sorted(data)[-1])
